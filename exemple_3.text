@@ -1,0 +1,1 @@
+	iceo definition: #animal.	iceo definition: #chat genus: animal.		iceo definitionAttribut: #tête de: chat cardinalite: 1.	iceo definitionAttribut: #patte de: chat cardinalite: 4.		iceo soit: #Félix essence: chat.		
