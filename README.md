@@ -9,6 +9,6 @@ Le code source d'ICEO (ICEO.st) peut être téléchargé avec les fichiers corre
 ```
 Metacello new
   baseline: 'ICEO';
-  repository: 'github://rodejaphgh/ICEO/src';
+  repository: 'github://rodejaphgh/ICEO:main/src';
   load.
 ```
