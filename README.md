@@ -11,4 +11,4 @@ Metacello new
   repository: 'github://rodejaphgh/ICEO:main/src';
   load.
 ```
-After loading, do :   ICEO start
+After loading, execute :   ICEO start
