@@ -1,0 +1,1 @@
+	Class {	#name : 'Oups',	#superclass : 'Exception',	#instVars : [],	#classInstVars : [],	#category : 'ICEO',	#package : 'ICEO'}
