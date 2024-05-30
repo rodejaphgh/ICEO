@@ -1,6 +1,6 @@
 # ICEO
 ICEO est une étude sur la modélisation des êtres et de leurs manières d'être dans certaines situations.
-Le langage linéaire d'ICEO est implanté en Smalltalk (Version 12 de Pharo).
+Le langage textuel d'ICEO est implanté en Smalltalk (Version 12 de Pharo).
 
 
 ## To load 
