@@ -237,7 +237,7 @@ ICEO class >> forDoItInPlayground [
 
 	| receiver result oldBindings node aLine |
 	node := RBParser parseExpression: aString.
-	node class == RBMessageNode ifTrue: [
+	(node class == RBMessageNode or: [node class == RBVariableNode]) ifTrue: [
 		[
 		^ [
 		  self announcer announce:
