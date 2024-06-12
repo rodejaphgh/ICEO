@@ -229,6 +229,45 @@ ICEO class >> buildIcons [
 ]
 
 { #category : 'utile' }
+ICEO class >> forDoIt [
+	"Permet que les lignes évaluées en bloc soient évaluées en séquence et attrape les exceptions de classe Oups" 
+
+	RubSmalltalkEditor
+		compile: 'evaluateSelection
+	| node aString |
+	node := RBParser parseExpression: self selectionForDoitAsStream contents.
+	(node class == RBVariableNode or: [node class == RBMessageNode]) ifTrue: [
+		[ OpalCompiler new evaluate: node newSource ]
+			on: Oups
+			do: [ :ex |
+				SpInformDialog new
+					title: '''';
+					extent: 600 @ 120;
+					label: ex description;
+					acceptLabel: ''OK'';
+					openDialog. 
+				Transcript clear; show: node newSource ]].
+
+	node class == RBSequenceNode ifTrue: [
+		[
+		node statements do: [ :each | aString := each newSource.
+			Semaphore new
+				waitTimeoutMilliseconds: 10
+				onCompletion: [  ]
+				onTimeout: [ OpalCompiler new evaluate: each newSource ] ] ]
+			on: Oups
+			do: [ :ex |
+				SpInformDialog new
+					title: '''';
+					extent: 600 @ 120;
+					label: ex description;
+					acceptLabel: ''OK'';
+					openDialog. 
+				Transcript clear; show: aString ]]'
+		classified: 'do-it'
+]
+
+{ #category : 'utile' }
 ICEO class >> forDoItInPlayground [
 	"Permet que les lignes évaluées en bloc soient évaluées en séquence et attrape les exceptions Oupss"
 
@@ -512,7 +551,7 @@ ICEO class >> reset [
 	Smalltalk at: #chose put: th.
 	(Smalltalk at: #chose) setDescription: 'chose est l''essence racine de la hiérarchie des essences'.
 	(Smalltalk at: #Lexique) add: #chose.
-	"(Smalltalk at: #absolu) getDifferentia add: (Smalltalk at: #chose)."
+	(Smalltalk at: #absolu) getDifferentia add: (Smalltalk at: #chose).
 	th isSituation: false.
 	th isQualite: false.
 	th setSituationDefinition: abs.
@@ -546,6 +585,7 @@ ICEO class >> start [
 
 	DangerousClassNotifier check: name'.
 	
+	ICEO forDoIt.
 	ICEO forDoItInPlayground.
 	ICEO buildIcons.
 	[
@@ -565,6 +605,7 @@ ICEO class >> start [
 	th := Essence createFreeSubclass: #chose.
 	Smalltalk at: #chose put: th.
 	(Smalltalk at: #Lexique) add: #chose.
+	(Smalltalk at: #absolu) getDifferentia add: (Smalltalk at: #chose).
 	(Smalltalk at: #chose) setDescription:
 		'chose est l''essence racine de la hiérarchie des essences'.
 	th isSituation: false.
