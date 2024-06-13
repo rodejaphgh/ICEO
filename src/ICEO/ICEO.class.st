@@ -569,7 +569,7 @@ ICEO class >> reset [
 ICEO class >> start [
 
 	| abs th wd |
-	"Appelée lors du chargement de ICEO.st"
+	"Appelée lors du chargement de ICEO"
 	ShiftClassBuilder compile: 'validateClassName
 	name ifNil: [ ^self ].
 
@@ -585,9 +585,9 @@ ICEO class >> start [
 
 	DangerousClassNotifier check: name'.
 	
-	ICEO forDoIt.
-	ICEO forDoItInPlayground.
-	ICEO buildIcons.
+	self forDoIt.
+	self forDoItInPlayground.
+	self buildIcons.
 	[
 	(Smalltalk globals hasClassNamed: 'absolu') ifTrue: [
 		Oups new signal:
