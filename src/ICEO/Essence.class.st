@@ -1007,18 +1007,23 @@ Essence >> isSituation: aBoolean [
 Essence >> removeEtat: unEtat [
 	
 	self getEtats remove: unEtat.
+	unEtat getSituationDefinition removeEtre: unEtat
 
 ]
 
 { #category : 'etats' }
 Essence >> removeEtatDeNom: unStringOrSymbol [
 
-	| symbol e |
+	| symbol |
 	symbol := unStringOrSymbol isSymbol
 		          ifTrue: [ unStringOrSymbol ]
 		          ifFalse: [ unStringOrSymbol asSymbol ].
-	self getEtats do: [ :each |
-		each getNom == symbol ifTrue: [ self getEtats remove: each. ^ self]]
+	self getEtats
+		detect: [ :each | each getNom == symbol ]
+		ifFound: [ :element | self removeEtat: element ]
+		ifNone: [
+			"Oups new signal:
+				self getNom , ' ne possède pas d''état de nom ' , unStringOrSymbol" ]
 ]
 
 { #category : 'acces' }
