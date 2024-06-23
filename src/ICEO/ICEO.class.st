@@ -230,7 +230,7 @@ ICEO class >> buildIcons [
 
 { #category : 'utile' }
 ICEO class >> forDoItInPlayground [
-	"Permet que les lignes évaluées en bloc soient évaluées en séquence et attrape les exceptions Oupss"
+	"Permet que les lignes évaluées en bloc soient évaluées en séquence et attrape les exceptions Oups"
 
 	SpCodePresenter
 		compile: 'evaluate: aString onCompileError: compileErrorBlock onError: errorBlock
