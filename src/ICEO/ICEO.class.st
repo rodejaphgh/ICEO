@@ -546,7 +546,6 @@ ICEO class >> start [
 
 	DangerousClassNotifier check: name'.
 	
-	self forDoIt.
 	self forDoItInPlayground.
 	self buildIcons.
 	[
