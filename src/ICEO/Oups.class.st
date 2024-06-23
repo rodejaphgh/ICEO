@@ -1,5 +1,5 @@
 "
-Exception levée dans ICEO en cas d'erreur applicative
+Exception levée dans ICEO en cas d'erreur applicative 
 "
 Class {
 	#name : 'Oups',
