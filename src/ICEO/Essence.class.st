@@ -1006,7 +1006,6 @@ Essence >> isSituation: aBoolean [
 { #category : 'as yet unclassified' }
 Essence >> printOn: aStream [ 
 	aStream nextPutAll: self getNom
-
 ]
 
 { #category : 'etats' }
