@@ -274,7 +274,7 @@ ICEO class >> forDoItInPlayground [
 					extent: 600 @ 120;
 					label: ex description;
 					acceptLabel: ''OK'';
-					openDialog. Transcript clear; show:  aString] ].
+					openDialog. Transcript clear; show:  aString]. ^result].
 			
 			
 			
