@@ -239,7 +239,7 @@ ICEO class >> forDoItInPlayground [
 	node := RBParser parseExpression: aString.
 	(node class == RBMessageNode or: [node class == RBVariableNode]) ifTrue: [
 		[
-		^ [
+		 [
 		  self announcer announce:
 			  (SpCodeWillBeEvaluatedAnnouncement newContent: aString).
 		  oldBindings := self interactionModel bindings copy.
