@@ -1,0 +1,2700 @@
+\documentclass[a4paper, 12pt, openright, french]{book}
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command
+\usepackage{lmodern}
+\usepackage{iftex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp} % provide euro and other symbols
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+	\usepackage[]{microtype}
+	\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+	\IfFileExists{parskip.sty}{%
+		\usepackage{parskip}
+	}{% else
+		\setlength{\parindent}{0pt}
+		\setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class\KOMAoptions{parskip=half}
+}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage[normalem]{ulem}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+	hidelinks,
+	pdfcreator={LaTeX via pandoc}}
+\usepackage{setspace}
+\usepackage{geometry}
+\geometry{a4paper,left=25mm,right=25mm,top=20mm,bottom=25mm}
+\usepackage[pages = some]{background}
+\backgroundsetup{
+	scale=1,
+	angle=0,
+	opacity=0.2,
+	contents={
+		\includegraphics[width=\textwidth]{pinocchio}}
+}
+\usepackage{whitecdp}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\setlength{\parskip}{4mm}
+\usepackage{titlesec}
+\usepackage[x11names]{xcolor}
+\usepackage{pagecolor}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usepackage{tikzpagenodes} 
+
+\makeatletter
+\newcommand{\enableopenany}{%
+	\@openrightfalse%
+}
+\newcommand{\disableopenany}{%
+	\@openrighttrue%
+}
+\makeatother
+
+\makeatletter
+\renewcommand*{\pagenumbering}[1]{%
+	\gdef\thepage{\csname @#1\endcsname\c@page}%
+}
+\makeatother
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{15pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{15pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{15pt plus 2pt minus 2pt}
+
+\titleformat{\section}{\bfseries\Large\raggedright}{\thesection.}{0.1cm}{} 
+\titleformat{\subsection}{\bfseries\large\raggedright}{\thesection.}{0.1cm}{} 
+\titleformat{\subsubsection}{\bfseries\normalsize\raggedright}{\thesection.}{0.1cm}{} 
+
+\newenvironment{nom}{\fontsize{18pt}{18pt} \selectfont}
+
+\begin{document}
+	
+\pagenumbering{gobble}   %pour enlever n°
+\newpagecolor{Ivory1}\afterpage{\restorepagecolor}	
+
+\includegraphics[width=8cm]{espace.jpg} 
+
+\begin{doublespace}
+\centering
+\fontsize{30pt}{30pt}
+	\textbf{Sur la modélisation des êtres}
+	
+	\textbf{et de leurs manières d'être}
+		
+	\textbf{dans certaines situations}
+\end{doublespace}
+
+\begin{nom}
+\vspace{0.5cm plus 0.5cm}
+ Robert Bourgeois
+\end{nom}
+
+\begin{tikzpicture}[remember picture, overlay]
+	\node [shift={(-8cm, -16cm)}, rotate=0] at (current page.north east)
+	{ \includegraphics[width=7cm]{pinocchio-removebg} };
+\end{tikzpicture}
+
+\fontsize{12pt}{12pt}
+\vspace*{15cm plus 0.5cm}
+\textcolor{darkgray}{\emph{robert.bourgeois@ieee.org \hspace{7cm plus 0.5cm}} \fontsize{9pt}{9pt} 23/06/2024}
+
+
+
+
+
+\newpage
+\setcounter{page}{0}
+\pagenumbering{arabic}
+~ 
+ 
+\newpage
+\vspace*{2cm plus 0.5cm}
+\hspace*{4cm plus 0.5cm} {~ L'erreur la plus grave que l'on puisse commettre au sujet}
+\hspace*{4cm plus 0.5cm} { d'un être est d'oublier l'acte en vertu duquel il est.}
+
+\hspace*{4cm plus 0.5cm} {Etienne Gilson dans} \emph{l'Etre et
+l'Essence}
+
+
+
+\vspace*{15cm plus 0.5cm}
+L'image de Pinocchio qui apparait sur la page de couverture provient du site https://www.disneyclips.com/images/pinocchio-clipart.html
+
+Ce document a été écrit en utilisant l'application TeXstudio
+
+Les graphes présentés dans ce document ont été réalisés avec l'outil graphique Yed de yWorks
+
+
+
+\tableofcontents
+
+\cleardoublepage
+\chapter{Introduction}
+
+La programmation par objets est essentiellement née de
+l'osmose entre les langages SIMULA {[}Dahl et Nygaard,
+66{]} et LISP {[}McCarthy \& al., 62{]} sous l'impulsion
+d'Alan Kay (machine FLEX {[}Kay, 69{]} et Smalltalk-72)
+et de Karl Hewitt (langages d'acteurs PLANNER {[}Hewitt,
+72{]}, de CONNIVER {[}Sussmann \& McDermott, 72{]}. La descendance de
+Simula et de Smalltalk est nombreuse, elle s'est
+différenciée dans de nombreux langages comme C++, Java, Python,
+...
+
+Alan Kay a construit le langage Smalltalk en partant de six principes :
+
+1. Tout est objet.
+
+2. Les objets communiquent par l'envoi et la réception de messages (eux
+mêmes des objets).
+
+3. Les objets ont leur propre mémoire (toujours en termes d'objets).
+
+4. Chaque objet est instance d'une classe (qui doit être un objet).
+
+5. La classe détient le comportement partagé par ses instances (sous la
+forme d'objets dans un programme).
+
+6. Pour l'évaluation du programme, le contrôle est passé au premier
+objet, le reste est traité par messages.
+
+Il n'est pas question pour nous de remettre en cause ces
+principes énoncés par Alan Kay il y a plus de 50 ans, dont la pertinence
+n'est plus à démontrer. 
+
+Par contre, on peut légitimement
+s'interroger sur le choix des mots utilisés.
+
+Suivant le premier principe, en Smalltalk tout est objet : une personne,
+un animal, une plante, un chapeau, ...
+
+En fait, il s'agit de tout ce qui existe, ce
+qu'en métaphysique les philosophes désignent depuis
+plusieurs millénaires par le mot "être".
+
+Un problème plus délicat se situe dans l'utilisation du
+mot "classe" pour désigner ce qui est tout ... sauf une classe.
+
+Le sens du mot classe (que l'on nous a appris lorsque
+nous étions en classe !) désigne un ensemble d'entités
+qui ont une ou plusieurs propriétés caractéristiques en commun. Cette
+définition est celle utilisée par exemple par Georges Boole dans "Les
+lois de la pensée", et qui a été établie par des
+mathématiciens et logiciens comme Alfred North Whitehead ou Bertrand
+Russel dans la théorie des classes.
+
+Ce qu'Alan Kay appelle une classe est en réalité un
+moule qui permet de créer des exemplaires appelés "instances".
+
+Dans ce sens, le mot "essence" défini en philosophie aurait été beaucoup
+mieux adapté.
+
+En résumé :
+
+\includegraphics[width=4.19375in,height=1.63403in]{figures/image1.jpeg}
+
+Le mot Félix est ici un nom propre, tandis que chat est un nom commun.
+
+Le nom commun d'une essence est généralement appelé un "terme". Pourquoi utiliser ce
+mot, qui suggère la dernière étape d'un processus ?
+
+Considérez l'image suivante :
+
+\includegraphics[width=2.17397in,height=1.52846in]{figures/image2.png}
+
+Le \uline{terme} "éléphant" marque la \uline{terminaison}
+d'un processus de classification d'animaux qui, selon
+le Littré, sont de grands et gros mammifères qui se distinguent par leur
+trompe et leurs longues défenses.
+
+Ce processus de classification aboutit à la création, ce qui peut
+sembler paradoxal, non pas d'une classe, mais
+d'une essence.
+
+La classe des éléphants qui sont en Afrique diffère de la classe de ceux
+qui sont en Asie, et la classe des éléphants sur terre à un instant t
+est différente de celle à l'instant t\textquotesingle.
+
+Par contre, l'essence éléphant est immuable.
+
+Une faiblesse que l'on observe dans tous les langages
+objets est de ne pas
+différencier les notions d'être et de manière
+d'être.
+
+Une manière d'être peut être essentielle (comme la
+qualité d'être mortel pour l'homme) ou
+accidentelle (comme la qualité d'époux ou
+d'épouse pour une personne).
+
+La notion de "méthode" des langages objets, qui répond au principe d'Alan Kay
+de communication des objets par l'envoi et la réception de messages,
+n'est rien d'autre qu'un
+cas particulier de manière d'être. Ainsi, par exemple,
+dormir pour un chat correspond à une manière
+d'être essentielle et intermittente.
+
+Les relations entre les êtres
+(autres que la relation de composition) sont liées à leurs manières
+d'être dans certaines situations.
+
+Ainsi, par exemple, un homme et une femme peuvent être liés dans leur
+situation maritale. Ce lien disparait s'ils divorcent.
+
+Quel sens donnons-nous au mot situation ? Ce mot désigne à la fois un
+acte et le résultat de cet acte. En tant que résultat, une situation
+correspond à un espace où peuvent se situer des êtres, par exemple dans
+l'espace et le temps. Pour des animaux, une faune
+correspond à l'ensemble des animaux d'un
+pays.
+
+Ainsi, avec la notion de situation on voit réapparaitre la notion de
+classe si chère aux logiciens.
+
+En résumé, dans cette étude nous ne parlerons pas
+d'objets et de classes, mais d'êtres et
+d'essences.
+
+Nous introduirons une distinction fondamentale entre les notions
+d'être et de manière d'être. Le
+comportement d'un être sera considéré comme un cas
+particulier de manière d'être qui produit un effet.
+
+Comme nous le montrons dans cette étude, cette distinction
+n'est pas en contradiction avec les principes
+d'Alan Kay.
+
+\cleardoublepage
+\chapter{Avant-propos}
+Notre objectif n'est pas ici de faire une
+dissertation\footnote{Une étude comparative des différentes théories afférentes à la représentation des connaissances est donnée dans [Kayser, 97].}, mais de présenter un formalisme où la notion d'essence occupe une position
+centrale, et qui introduit une distinction très forte entre les notions
+d'être et de manière d'être.
+
+Comme dans les langages objets, les réseaux sémantiques, les graphes conceptuels, UML, ..., les êtres dont il est question dans notre formalisme sont avant tout des idées.
+
+Il s'agit de modéliser ce qui peut devenir réel, comme les ingénieurs le font avec UML.
+
+Les concepts exposés dans la première partie de ce document sont
+relativement classiques. 
+
+En faisant abstraction des différences de
+vocabulaire, ils correspondent aux concepts de classe et de
+spécialisation que l'on trouve en
+particulier en Smalltalk, ou de frame et de subsomption des langages comme KL-ONE.
+
+La seconde partie qui porte sur la notion de manière d'être
+est originale. Cette notion n'est clairement
+explicitée et mise à profit, à notre connaissance, dans aucun formalisme
+existant.
+
+La notion de manière d'être éclaire la notion de description structurelle introduite dans KL-ONE; elle donne une sémantique au nom des rôles.
+
+Notre formalisme, que nous avons nommé ICEO\footnote{"iceo" est un mot de l'ancien
+	français signifiant "ceci"}, se présente à la fois sous une forme visuelle graphique\footnote{Suivant l'adage "un dessin vaut
+	parfois mieux qu'un long discours".}
+et comme un langage textuel directement interprétable par un
+ordinateur. 
+
+La présentation du langage textuel d'ICEO
+est faite dans un document annexe, téléchargeable à l'adresse https://github.com/rodejaphgh/ICEO avec une série d'exemples\footnote{Pour bâtir ce langage textuel nous avons utilisé
+	Smalltalk; plus précisément, la version
+	\includegraphics[width=0.55518in,height=0.19183in]{figures/image3.png}
+	de Smalltalk.}.
+
+
+\part{Première partie : sur la notion
+d'être}
+
+
+\cleardoublepage
+\chapter{Etres}
+
+D'un point de vue étymologique, le mot "être" dénote
+dans les langues indo-européennes "ce qui se tient en
+soi-même"\footnote{cf. l'ouvrage "\emph{En guise de
+		contribution à la grammaire et à l'étymologie du mot
+		"être"}" de Martin Heidegger.}.
+
+Les êtres considérés dans cette étude sont des êtres anoméomères
+(insécables)\footnote{En coupant un cheval en deux on obtient deux bouts
+	de cheval, mais pas deux chevaux.} ou homéomères (dont la division ou
+l'agrégation produisent des choses de même essence); ils
+peuvent être concrets (comme un cheval) ou abstraits (comme
+l'essence d'un être, la joie, le
+courage, ...), traditionnellement qualifiés d'universels
+par les philosophes et les logiciens, au sujet desquels ils se divisent
+encore sur la question de leur existence.
+
+Noter que les êtres considérés comme homéomères ne le sont
+qu'à un certain degré de division et/ou
+d'agrégation.
+
+Ainsi, un glaçon n'est ni une poussière de glace ni un
+glacier.
+
+Un être peut être atomique ou non. Un être non atomique nait de la
+relation établie entre ses constituants\footnote{Un cheval est constitué d'une tête,
+	de quatre pattes, ... }, qui peuvent
+être communs à d'autres êtres, sauf dans le cas
+d'individus (nous reviendrons sur cette notion plus
+loin).
+
+Tout être possède une existence propre.
+
+
+\section{Existence d'un être}
+
+L'existence d'un être est ce qui résulte
+de sa création.
+
+Un être se caractérise par l'immuabilité de son
+existence et la stabilité de sa structure.
+
+Comme le faisait observer E. Kant\footnote{cf. \emph{"La critique de la raison pure"} d'Emmanuel Kant}, dire qu'un être existe n'est pas ajouter
+l'attribut existence à sa structure.
+
+L'existence d'un être est ce qui
+subsiste quand on le considère comme un entier, dans son entièreté,
+comme un tout\footnote{L'axiomatique de Peano qui porte sur
+	les "entiers" naturels ne prend en compte que
+	l'existence des êtres vus dans leur entièreté, en
+	faisant abstraction de leur essence et de leur individualité.}.
+
+Si on considère l'existence comme étant le fondement de
+tout être, tout ce qui existe peut être considéré comme un être (les
+êtres vivants, les objets, les essences, les qualités, les actions, les
+états, les faits, les événements, les nombres, le faux et le vrai ,
+...)\footnote{Le premier postulat en Smalltalk est : tout est
+	objet. Pour nous, l'équivalent de ce postulat (auquel
+	nous adhérons totalement) est : "tout est être".}
+
+L'existence des êtres connus par un sujet est
+enregistrée dans sa mémoire qui constitue pour lui un
+référentiel\footnote{Constitué dans un ordinateur par un espace ordinal
+	où chaque existence est représentée de manière univoque par une adresse
+	mémoire, un entier naturel.}.
+
+Les existences sont discernables et peuvent être dénombrées.
+
+Faire référence à un être ne requiert que la connaissance de son
+existence.
+
+Un être peut être dénoté par un nom propre permettant de
+l'identifier dans une situation donnée.
+
+Suivant l'usage en français, nous écrirons le nom
+propre des êtres avec une majuscule, et nous utiliserons le symbole
+graphique
+\includegraphics[width=2cm,height=1cm]{figures/image4.png}
+pour représenter l'existence d'un être.
+
+Exemple, pour un être nommé Félix :
+
+
+\includegraphics[width=6.5cm,height=4.5cm]{figures/image5.jpeg}
+
+
+
+\section{Situation}
+
+Le mot situation désigne l'acte de situer des êtres ou
+le résultat de cet acte.
+
+En tant qu'acte, une situation distingue et rassemble
+les êtres sur une propriété particulière. 
+
+Tous les ensembles considérés dans ICEO sont des ensembles discrets et finis\footnote{Leurs éléments sont des points d'un espace topologique où chacun est isolé, éloigné des autres, et qu'il est possible de compter.}.
+
+Par exemple : les hommes, les hommes célibataires, les objets posés sur
+une table, ...
+
+Un être peut apparaître dans différentes situations, mais la situation
+de définition d'un être (celle où il a commencé à
+exister ou celle où il se situe dans l'espace-temps) est
+unique.
+
+Une situation peut concerner un ensemble d'êtres qui
+n'ont pas coexistés, comme les rois et les reines
+d'Angleterre.
+
+Une situation peut évoluer dans l'espace et le temps.
+
+Compter des êtres suppose de les avoir situés préalablement ensemble. Ce
+comptage ne peut faire abstraction de la propriété caractéristique qui
+permet de les rassembler, de les situer collectivement.
+
+Dire par exemple qu'il y a 4 carottes dans un panier
+suppose qu'elles soient existentiellement discernables
+et fait référence à leur essence carotte. Cette remarque peut sembler
+idiote, mais si l'on veut prendre en compte (compter)
+également les 2 poireaux qui s'y trouvent, on ne pourra
+dire qu'il contient 6 carottes ou 6 poireaux, mais
+qu'il contient 6 légumes, en supposant que les carottes
+et les poireaux soient aussi des légumes.
+
+Le terme qui suit une cardinalité dans une expression dénote toujours
+une essence ou une qualité qui est commune à tous les êtres comptés.
+
+Comme tout ensemble, une situation peut être identifiée par un nom (par
+exemple la "famille Gonthier ", \ldots).
+
+
+
+\newpage
+\section{Essence d'un être}
+L'idée qui sous-tend la notion
+d'essence\footnote{Selon le Littré, le mot essence provient du latin
+	essentia, de esse, être. "L'essence est ce qui fait
+	qu'une chose est ce qu'elle est, ce en
+	l'absence de quoi elle ne serait pas ce
+	qu'elle est". Les auteurs des langages informatiques dit
+	"objets" ont choisi de nommer "classe" ce que nous nommons essence.} est celui de plan qui permet de créer les êtres, de les classifier et de les reconnaître.
+
+La notion d'essence est proche de la notion de concept
+générique des réseaux sémantiques, de classe des langages objets dits
+"de classe", de frame des langages de frames\footnote{Le terme~frame~(cadre) a d'abord été utilisé par Marvin
+		Minsky comme paradigme de compréhension et de traitement du langage
+	naturel.}.
+
+La connaissance d'un être ne doit pas être confondue
+avec la connaissance de l'existence d'un
+être.
+
+En français\footnote{En français la phrase "Je connais Paul" est
+	correcte, tandis que "Je sais Paul" ne l'est pas. Par
+	contre "Je sais que Paul existe (ou n'existe pas)" est
+	correcte. Toutes les langues n'ont pas dans leur
+	vocabulaire des mots faisant cette distinction entre savoir et
+	connaître.}, la connaissance de
+l'existence d'un être
+s'exprime avec le verbe "savoir".
+
+Un sujet peut savoir l'existence ou
+l'\uline{inexistence} d'êtres
+d'une essence donnée dans une situation donnée.
+
+Savoir qu'il n'existe pas actuellement
+d'hommes sur la lune suppose la connaissance de la lune
+et de l'essence homme et non la connaissance de tous les
+hommes qui existent ou n'existent pas sur la lune.
+
+La classe des hommes dans l'univers est différente de
+celle des hommes qui existent en France, et la classe des hommes qui
+existent à l'instant t\textsubscript{1} est différente
+de celle à t\textsubscript{2}.
+
+Pourtant, n'existe t-il aucun point commun entre les
+éléments de ces différentes classes ? C'est leur
+essence.
+
+La classe des hommes qui existent à un instant donné dépend de la
+situation considérée, alors que l'essence homme est
+immuable.
+
+Comme le disait Abélard\footnote{ Pierre Abélard est un philosophe français né en 1079
+	et mort en 1142. Sur sa vision de la notion d'essence,
+	on pourra se référer à l'article "\emph{La signification
+		des universaux chez Abélard}" paru dans
+	la Revue Philosophique de
+		Louvain en 1982}, même s'il
+n'y avait plus une seule rose au monde, le nom rose
+aurait une signification pour l'entendement.
+
+Nous verrons plus loin qu'une essence peut être
+considérée elle-même comme un être ayant sa propre essence (sa "méta
+essence")
+
+
+
+\newpage
+\subsection{Constitution de l'essence d'un être}
+
+Une essence est définie\footnote{Le sens du terme "définition" que nous utilisons est
+	celui donné par Aristote dans les Topiques : "\emph{une définition est
+		une phrase indiquant l'essence de quelque chose}"} par l'agencement d'un ensemble
+d'autres essences qui constituent ses attributs.
+
+L'essence d'un être prend en compte :
+
+\begin{itemize}
+\item
+  sa composition en termes d'essences (ses attributs)
+\item
+  les contraintes structurelles imposées à ses attributs
+\item
+  ses manières d'être essentielles.
+\end{itemize}
+
+Une essence est dénotée par un terme qui marque la \uline{terminaison}
+de l'accomplissement d'un processus de
+modélisation et de différentiation par rapport aux autres essences. En
+français, un nom commun est un terme.
+
+Suivant l'usage en français, nous écrirons le nom
+commun des essences avec une minuscule, et nous utiliserons le symbole
+graphique
+\includegraphics[width=0.48844in,height=0.2573in]{figures/image6.png}
+pour représenter l'essence d'un être.
+
+Exemple :
+
+\includegraphics[width=8cm]{figures/image7.jpeg}
+
+Nous allons nous intéresser tout d'abord à la
+composition d'une essence.
+
+Le principe exposé est très proche du principe
+de composition d'Aristote.
+
+Les notions de contrainte structurelle et de manière
+d'être seront abordées plus loin.
+
+
+
+
+\newpage
+\raggedbottom
+\subsubsection{Composition d'une essence}
+Pour composer une essence nous définissons une loi de composition
+externe à droite nommée "attribution" symbolisée par "$\oplus$" qui permet de
+définir une essence y à partir d'une essence x et de
+l'ensemble de ses attributs a1, a2, ..., an :
+
+y = $\oplus$ (x, \{ a1, a2, \ldots, an \}) où a1, a2, ..., an sont des essences
+
+Exemple : chat = $\oplus$ (animal, \{ tête, queue, ... \})
+
+Une essence ne peut être l'un de ses attributs.
+
+Reprenant la terminologie d'Aristote, nous appellerons x
+le \emph{genus} de y et \{ a1, a2, \ldots, an \} son \emph{differentia}.
+
+La loi d'attribution permet de définir une relation
+d'ordre entre essences appelée subsomption :
+
+x subsume y si et seulement si il existe un ensemble
+d'essences E tel que y = $\oplus$ (x, E)
+
+Ainsi dans notre exemple, l'essence animal subsume
+l'essence chat.
+
+Nous nommerons "est" ou "spécialise" la relation converse de "subsume".
+
+\uline{Représentation graphique}
+
+\includegraphics[width=12cm]{figures/image8.jpeg}
+
+Supposons que l'essence chat soit définie par~: "chat
+est animal qui a queue" (ce qui est certes un peu restrictif par rapport à la réalité \ldots)
+
+La représentation graphique de cette définition est :
+
+\includegraphics[width=12cm]{figures/image9.jpeg}
+
+Par définition, toute essence est subsumée par elle-même.
+
+Une essence ne peut avoir plusieurs genus\footnote{Le graphe de subsomption n'est donc
+	pas un treillis comme c'est le cas pour la hiérarchie de
+	types définie dans les réseaux sémantiques tels que décrits dans
+	l'ouvrage "\emph{Conceptual Structures. Information
+		processing in mind and machine}" de J.F. Sowa.}.
+
+Le graphe de subsomption est un graphe hiérarchique dont la racine est
+l'essence nommée "chose" qui n'est
+subsumée que par elle-même.
+
+L'ensemble des attributs de chose est
+vide\footnote{Le differentia de chose est
+	l'ensemble vide, car l'essence chose est
+	son propre genus. Nous appellerons "rien" l'ensemble
+	d'essences vide. Cet ensemble vide est
+	l'élément neutre à droite de la loi
+	d'attribution.}.
+
+
+\subsubsection{Prise en compte de la notion de multiplicité}
+
+La multiplicité est une contrainte structurelle qui porte sur le nombre
+d'êtres d'une essence donnée rentrant
+dans la composition d'un être\footnote{Rappelons que dans ICEO les ensembles considérés sont discrets et finis.}.
+
+Par exemple, nous pourrions écrire~: chat = $\oplus$ (animal, \{ (tête, 1) ,
+(patte, 4), ... \})
+
+\uline{Représentation graphique}
+
+La cardinalité sera omise si elle est égale à 1 et notée * si elle est
+quelconque.
+
+\includegraphics[width= 9cm]{figures/image10.jpeg}
+
+\subsubsection{Sur la notion d'attribut}
+
+ICEO diffère d'autres formalismes pour la définition des
+attributs.\textsuperscript{,}
+
+Dans les langages comme SMALLTALK, OBJVLISP, FLAVORS, Java, ... un
+attribut est la valeur d'une variable, comme l'est un membre
+d'une structure dans le langage C, équivalent à un champ
+d'un record en Pascal.
+
+Les langages SMALLTALK, RLL, LORE, KRS, CLOS, CLASSTALK, MERING IV, ...
+ont opté pour une définition récursive des attributs, un attribut
+devenant une \uline{référence} d'un objet sur un autre
+objet.
+
+Si cette définition récursive des attributs permet de créer des
+structures emboîtées d'objets, elle
+n'uniformise toutefois pas totalement les notions
+d'objet et d'attribut.
+
+Une distinction subsiste toujours entre la définition des essences et de
+leurs attributs.
+
+Ainsi dans ces langages l'attribut de nom "tête" de
+cheval peut avoir aussi bien la classe "tête" que la classe "queue",
+sans aucun lien sémantique avec elle.
+
+Ceci n'est pas possible dans ICEO.
+
+Ainsi le graphe suivant définit dans ICEO que l'essence
+cheval a un attribut nommé "tête" qui est une essence :
+
+\includegraphics[width= 11cm]{figures/image11.jpeg}
+
+Les graphes suivants seraient incorrects :
+
+\includegraphics[width= 11cm]{figures/image12.jpeg}
+
+
+\newpage
+\subsection{Principe d'héritage des attributs des essences}
+
+La transitivité de la relation d'ordre de subsomption
+est exploitée dans un principe communément appelé "héritage".
+
+Une essence hérite des attributs des essences subsumantes.
+
+Ainsi par exemple, si "oiseau a \{ aile \}", "passereau est oiseau" et
+"mésange est passereau" alors par héritage on en déduit que "passereau a
+\{ aile de oiseau\}"~ et que "mésange a \{ aile de oiseau \}" :
+
+\includegraphics[width= 8cm]{figures/image13.jpeg}
+
+Les oiseaux ont des pattes et les passereaux ont des pattes qui se
+terminent par 4 doigts dont trois sont orientés vers l'avant et un vers
+l'arrière (ils sont anisodactyles) :
+
+\includegraphics[width= 12cm]{figures/image14.jpeg}
+
+Dans cet exemple, mésange hérite de l'attribut patte de
+passereau qui spécialise l'attribut patte de oiseau.
+
+Nous verrons plus loin que le principe d'héritage prend
+également en compte les autres aspects d'une essence que
+sont ses contraintes structurelles internes et ses manières
+d'être.
+
+\newpage
+\raggedbottom
+\subsection{Création d'une essence}
+
+Une essence dépend des essences qui la composent, mais
+l'inverse n'est pas toujours vrai.
+
+Autrement dit, les essences attributs d'une essence
+peuvent ou non lui être propres.
+
+Deux principes sont utilisables pour créer une essence :
+
+\begin{itemize}
+\item
+  soit créer l'essence à partir
+  d'essences attributs qui lui sont propres.
+\item
+  soit créer l'essence à partir
+  d'essences existantes.
+\end{itemize}
+
+\subsubsection{Définition d'une essence à partir
+d'attributs qui lui sont propres.}
+
+Dans ce cas, l'essence constitue la situation de
+définition de ses essences attributs.
+
+Ainsi par exemple, voici une définition de l'essence
+chat :
+
+chat = $\oplus$ (animal, \{ (tête de chat, 1) , (patte de chat, 4), ... \})
+
+patte de chat est propre à chat. Elle a par exemple des griffes
+rétractiles que ne possède pas patte de chien.
+
+Noter qu'un attribut n'est généralement
+propre à une essence que jusqu'à un certain niveau de
+décomposition.
+
+Ainsi, les gènes qui constituent l'essence chat ne lui
+sont pas tous propres, et encore moins les atomes qui constituent ses
+gènes.
+
+\subsubsection{Définition d'une essence basée sur
+l'agencement d'essences qui ne lui sont
+pas propres.}
+
+Dans de nombreux cas, les essences qui composent une essence ne lui sont
+pas propres.
+
+Autrement dit, l'essence ne constitue pas la situation
+de définition de ses essences attributs. Elle se contente de référencer
+les essences qui la composent.
+
+C'est le cas par exemple des atomes, des composés
+chimiques, de la plupart des objets conçus par l'homme.
+
+Ainsi, en électronique, rien ne distingue l'essence
+"patte de transistor" de l'essence "patte de diode".
+
+En chimie, oxygène-16 est l'isotope le plus abondant
+dans l'oxygène naturel.
+
+Sa définition est :
+
+oxygène-16 = $\oplus$ \{chose, \{(proton, 8), (électron, 8), (neutron, 8)\}
+
+La définition des essences proton, électron et neutron est indépendante
+de celle de l'oxygène.
+
+L'essence oxygène rentre elle-même dans la composition
+de nombreuses essences (composés chimiques) mais sa définition est
+indépendante des composés dont elle fait partie.
+
+\newpage
+Le processus de création des composés chimiques est à
+l'origine des réseaux de Petri\footnote{inventés en août 1939 par l'Allemand
+	Carl Adam Petri, à l'âge de 13 ans}.
+
+Exemple:
+
+\includegraphics[width= 7cm]{figures/image15.jpeg}
+
+On voit dans cet exemple que l'essence O (oxygène)
+rentre dans la composition de différentes essences comme
+CO\textsubscript{2} (oxyde de carbone), NaHCO\textsubscript{3}
+(bicarbonate de sodium), ...
+
+Noter que le processus permettant de créer (synthétiser) une essence à
+partir de ses essences attributs n'est pas forcément
+unique.
+
+Ainsi, le processus le plus utilisé actuellement pour produire le
+bicarbonate de sodium est plutôt décrit par :
+
+Na\textsubscript{2}CO\textsubscript{3} + H\textsubscript{2}O +
+CO\textsubscript{2} → 2 NaHCO\textsubscript{3}
+
+Voici la représentation de la molécule de dioxyde de carbone :
+
+\includegraphics[width= 8cm]{figures/image16.jpeg}
+
+Les figures géométriques sont un exemple d'essence
+définie à partir d'essences existantes (comme point,
+ligne, ...).
+
+En aéronautique, on peut retrouver par exemple la même essence "hélice"
+dans la composition de différents avions à hélice.
+
+Dans l'industrie, le fait de chercher à créer des
+composants réutilisables est érigé en principe pour des questions de
+coût de conception et de fabrication.
+
+\newpage
+\raggedbottom
+\section{Situation générique}
+
+Une situation générique est un ensemble d'essences (les
+essences pouvant être considérées comme des êtres, nous reviendrons plus
+loin sur ce sujet).
+
+Lors de sa création, l'extension d'une
+situation générique est vide.
+
+Les situations génériques forment un graphe hiérarchique dont la racine
+est appelée "absolu".
+
+L'essence chose est définie dans
+l'absolu et les essences définies dans
+l'absolu sont celles d'individus (nous reviendrons plus loin sur cette notion).
+
+Le critère de rassemblement d'essences dans une
+situation générique est une qualité abstraite. Une situation générique
+peut correspondre à un point de vue existentiel, social, esthétique,
+statique, dynamique, ...
+
+Ainsi, la situation générique "zoologie" définie dans
+l'absolu regroupe toutes les essences en rapport avec
+les animaux, leur organisme et leurs modes de vie.
+
+Une essence est définie dans une et une seule situation générique (sa
+situation de définition) et par principe deux essences de même nom ne
+pourront apparaitre dans la même situation générique de définition
+(celle-ci formant un espace de nommage).
+
+Par contre, rien n'empêche d'avoir des
+essences homonymes définies dans des situations génériques différentes
+(comme l'essence chien définie en zoologie,
+l'essence chien d'une arme à feu,
+l'essence chien du jeu de tarot,
+l'essence chien assis définie en architecture,
+l'essence chien jaune définie en aéraonautique, ...).
+
+Une essence peut être référencée dans d'autres
+situations génériques que sa situation générique de définition.
+
+Ainsi, l'essence homme définie en anthropologie peut
+être référencée dans la situation de couple, de famille, de village, de
+nation,...
+
+La même essence peut être représentée différemment suivant la
+perspective utilisée. Nous parlerons de connotations.
+
+Ainsi en est-il de la représentation de l'essence
+vecteur dans un système de coordonnées cartésiennes ou polaires.
+
+Nous utiliserons le symbole graphique
+\includegraphics[width=0.56477in,height=0.33886in]{figures/image17.png}
+pour représenter une situation générique
+
+Exemple :
+
+\includegraphics[width= 10cm]{figures/image18.jpeg}
+
+La situation générique zoologie est ici incluse dans
+l'absolu.
+
+Une essence dont les attributs lui sont propres constitue la situation
+générique de définition de ses attributs.
+
+Exemple :
+
+\includegraphics{figures/image19.jpeg}
+
+L'essence patte n'est pas ici définie en
+zoologie comme animal et chat, mais dans l'essence chat
+(le \emph{differentia} de chat). De même l'essence
+griffe rétractile de patte de chat est définie dans
+l'essence patte de chat.
+
+Pour éviter une représentation visuelle trop complexe, nous ne
+présenterons pas systématiquement les situations génériques incluses
+dans l'absolu (comme zoologie) dans nos graphes, ainsi
+que la situation générique que constitue chaque essence, sauf si cette
+simplification est source d'ambiguïté.
+
+Ainsi, l'exemple précédent pourra être présenté de
+manière simplifiée comme ceci :
+
+\includegraphics[width=12cm]{figures/image20.jpeg}
+
+Par défaut, l'essence chose n'est pas
+non plus représentée.
+
+\newpage
+\raggedbottom
+\section{Identification des essences}
+
+Une situation générique constitue un espace de nommage pour les essences
+qui y sont définies, mais des essences de même nom peuvent apparaître dans des situations
+différentes.
+
+Les essences qui sont attributs propres d'une essence
+peuvent être identifiées par rapport à l'essence dont
+elles font partie.
+
+Ainsi, considérons le graphe suivant~:
+
+\includegraphics[width= 11cm]{figures/image21.jpeg}
+
+Différentes essences homonymes telles que celles nommées "patte"
+apparaissent dans ce graphe\footnote{En Smalltalk, où l'héritage des variables d'instance est statique, une classe et ses sous-classes ne peuvent avoir des variables d'instance de même nom.}. De fait, patte de chat n'est pas patte de chien, ne serait-ce que par le fait que patte de chat a griffe rétractile.
+
+L'identification d'une essence peut
+aussi faire en utilisant le nom de son genus.
+
+Considérons l'exemple suivant :
+
+\includegraphics[width= 11cm]{figures/image22.jpeg}
+
+Dans cet exemple, l'expression "âge de chien"
+retournerait "âge de animal", "abri de chien" retournerait "niche de
+chien" et "membres de chien" retournerait l'ensemble
+\{tête de chien, queue de chien\}
+
+
+\newpage
+\section{Essences abstraites}
+
+Une essence abstraite est une essence qui a simplement la propriété de
+subsumer (être le genus) d'une autre essence.
+
+Considérons le graphe suivant :
+
+\includegraphics[width=9cm]{figures/image23.jpeg}
+
+L'expression "chat = attribution (animal, \{queue\})"
+est équivalente à "animal = omission(chat, \{queue\})".
+
+En ce sens, l'essence animal peut être vue comme étant
+abstraite (soustraite) de l'essence chat en lui enlevant
+sa queue. Mais rien n'interdit
+l'instanciation de l'essence animal.
+
+Supposons par exemple que vous entendiez le bruit de quelque chose qui
+se déplace dans votre grenier.
+
+A priori, vous croyez qu'il s'agit
+d'un animal. Si vous entendez ensuite cet animal
+miauler, vous allez en déduire que c'est un chat.
+
+A votre connaissance, l'être perçu a tout
+d'abord été une instance de l'essence
+animal, puis est devenu une instance de chat.
+
+La connaissance de l'essence d'un être
+par un sujet est ainsi révisable.
+
+La possibilité d'instancier toute essence
+(qu'elle soit abstraite ou non) est primordiale dans une
+démarche de représentation d'êtres dont
+l'existence est connue du sujet mais dont la
+connaissance de l'essence est révisable.
+
+Dans une démarche d'invention d'une
+nouvelle essence (par exemple un nouveau type d'avion),
+la situation est différente. La définition de celle-ci passe
+généralement par divers stades de spécialisation (de conception), mais
+lors de la création d'un être conformément à une
+nouvelle essence, la définition de celle-ci doit être aboutie (non
+abstraite) et la connaissance du sujet sur un être qu'il
+a créé est totale.
+
+En sachant par exemple que les essences mouton et chien sont subsumées
+par animal, supposons que vous demandiez à quelqu'un de
+vous dessiner un animal. La personne va vous dessiner un mouton ou un
+chien. Elle ne peut pas vous dessiner un animal, car il
+s'agit d'une essence abstraite qui
+n'a pas de forme.
+
+\section{Essence et normalité}
+
+Savez-vous que la plupart des types de moutons naissent avec une queue ?
+J'ai longtemps cru le contraire en les voyant dans les
+champs. En réalité, les bergers leur coupent généralement la queue
+lorsqu'ils sont agneaux pour des questions d'hygiène, en
+particulier pour les brebis utilisées pour la traite.
+
+\includegraphics[width=1.23824in,height=0.8216in]{figures/image24.png}
+
+Mais un mouton auquel on a coupé la queue est-il encore un mouton ? Je
+vous laisse répondre à cette question.
+
+Toute essence définit une normalité qui tolère des écarts, à condition
+bien sûr de ne pas porter atteinte à des caractéristiques essentielles.
+Ainsi, une voiture qui a perdu une roue n'est plus une
+voiture.
+
+\newpage
+\section{Constitution d'un être}
+Un être est créé par instanciation\footnote{"Instancier" est en français un néologisme venant du
+	verbe anglais "to instanciate" qui signifie "créer un exemplaire de". L"instanciation" est l'acte de créer (instancier) un être à
+	partir de son essence, et "instance" l'être créé.} de son essence,
+acte qui lui donne existence \footnote{Ou par copie d'un être existant (un
+	prototype), la copie créant un être de même essence que
+	l'original.}.
+
+Tout être possède une et une seule essence.
+
+Un être se caractérise par :
+
+\begin{itemize}
+\item
+  sa composition en termes d'attributs
+\item
+  ses contraintes structurelles
+\item
+  ses états qui correspondent à des manières d'être
+  essentielles
+\end{itemize}
+
+Nous allons tout d'abord nous intéresser à la
+composition d'un être. Les notions de contrainte
+structurelle et d'état seront abordées plus loin.
+
+Notons qu'à un instant donné, si une essence x subsume
+une essence y, la classe des instances de y est incluse dans la classe
+des instances de x. Ainsi, à un instant donné le nombre
+d'animaux sur terre est plus grand que celui des chats.
+
+L'essence d'un être est unique, mais
+tout être est instance des essences subsumant son essence. Par
+transitivité, tout être est une (quelque) chose.
+
+Ainsi par exemple, le graphe suivant exprime que Félix est un chat mais
+aussi un félin, un carnassier, un mammifère, un vertébré, un animal et
+une chose :
+
+\includegraphics{figures/image25.jpeg}
+
+\newpage
+\section{Situation individuelle}
+
+Une situation individuelle correspond à un ensemble
+d'êtres.
+
+Une même situation individuelle peut concerner simultanément plusieurs
+êtres. Par exemple un chien qui dort et un autre qui mange.
+
+Les situations individuelles forment un graphe hiérarchique dont la
+racine est appelée "monde".
+
+Une situation individuelle est instance d'une situation
+générique.
+
+Ainsi, la situation individuelle "faune" est instance de la situation
+générique "zoologie".
+
+La situation "monde" est instance de la situation générique "absolu".
+
+Lors de sa création, une situation individuelle est vide.
+
+Nous utiliserons le symbole graphique
+\includegraphics[width=2cm]{figures/image27.jpeg}pour
+représenter une situation individuelle.
+
+Exemple :
+
+\includegraphics[width= 12cm]{figures/image28.jpeg}
+
+Félix et Maya sont des chats d'une faune située dans le
+monde. L'essence licorne n'a pas été
+instanciée (et ne le sera sans doute jamais).
+
+En un point de l'espace-temps, un être se situe dans une
+et une seule situation individuelle, mais il peut être référencé dans
+d'autres situations. Ainsi une famille, un village, une
+nation, ... , sont des situations qui référencent des êtres (membres,
+habitants, ...).
+
+Un être composé constitue la situation de définition de ses êtres
+attributs.
+
+Exemple :
+
+\includegraphics{figures/image29.jpeg}
+
+Les êtres queue et tête sont situés dans Félix
+
+Une représentation simplifiée pourra être :
+
+\includegraphics[width= 10cm]{figures/image30.jpeg}
+
+
+\section{Individus}
+
+Un individu\footnote{Selon le dictionaire de l'Académie française, un individu est un être formant une unité distincte et identifiable, qui ne peut être divisé sans être détruit. Le mot individu vient du mot latin "individuus" qui signifie "indivisible, inséparable".} est un être indivisible dont la situation de définition
+n'est pas un autre être et n'est pas une
+manière d'être (notion que nous étudierons plus loin) .
+
+Exemples :
+
+\begin{itemize}
+	\item
+	Un atome d'oxygène est un individu : son existence
+	n'est pas liée au fait que l'oxygène
+	soit un constituant de composés comme la molécule
+	d'eau.
+	\item
+	Un chien est un individu mais une patte de chien ne
+	l'est pas.
+	\item
+	Une contrainte de structure interne d'un être
+	n'est pas un individu.
+	\item
+	La blancheur de la neige n'est pas un individu.
+\end{itemize}
+
+Noter que le fait d'être élément d'un
+ensemble pour un être ne lui interdit pas d'être un
+individu, car son existence n'est généralement pas liée
+à son appartenance à cet ensemble.
+
+\section{Création des êtres}
+
+Dans ICEO, les êtres qui constituent un être forment un ensemble discret et fini. 
+
+Ceci exclut par exemple l'idée de créer une ligne ou un cercle à partir de ses points.
+
+Toutes les instances de l'essence cercle resteront définies en ICEO par leur centre et leur rayon, ou éventuellement représentées en pointillés, comme un cercle tracé au compas.
+
+Dans ICEO, un être est créé par agencement des êtres existants qui en font partie.
+
+Ainsi, ça n'aurait pas de sens de créer un chat sans ses
+pattes ou de créer un avion avant de créer ses ailes, ...
+
+Il existe dans ICEO une sorte de morphisme $\psi$ entre l'ensemble des
+êtres et celui des essences qui est tel que la structure d'un être est
+conforme à la structure générique de son essence.
+
+$\psi$(x) = essence de x
+
+Nous définirons le prédicat "est"\footnote{ou "est une" ou "est un" pour le distinguer du prédicat "est" converse de la relation de subsomption} qui est tel que~si
+x est instance de l'essence y :
+
+x est y $\Longleftrightarrow$y = $\psi$(x) ou y subsume $\psi$(x)
+
+Les êtres qui constituent un être non atomique peuvent lui être propres ou non.
+
+\subsubsection{Création d'un être à partir d'attributs qui lui sont propres.}
+	
+Dans ce cas, l'être constitue la situation de définition de ses êtres attributs.
+
+Ainsi, par exemple, les pattes d'un chat lui sont propres.
+
+\subsubsection{Création d'un être à partir d'attributs qui ne lui sont pas propres.}
+
+Dans certains cas, les êtres qui constituent un être ne lui sont pas propres.
+
+Autrement dit, l'être ne constitue pas la situation de définition de ses êtres attributs.
+
+C'est le cas par exemple d'une salle dans un bâtiment : les murs qui la composent peuvent être communs à d'autres salles.
+
+Une salle se contente de référencer les murs qui la composent.
+
+C'est également le cas par exemple des lumières reflétées par un objet par rapport aux lumières émises par une lampe.
+
+
+\newpage
+\section{Identification des êtres}
+
+Un être peut avoir un nom propre (comme Félix pour un chat), mais des
+êtres de même nom peuvent coexister dans la même situation individuelle,
+à condition de pouvoir être identifiés autrement que par leur nom.
+
+Du fait du morphisme existant entre l'ensemble des êtres
+et celui des essences, l'identification d'un être peut aussi se faire en
+utilisant le vocabulaire défini dans l'ensemble des
+essences.
+
+Ainsi, dans le graphe suivant, "tête de Toupy" identifie également sa
+tête, car il n'a qu'une seule tête, et
+"abri de Toupy" identifie sa niche.
+
+\includegraphics{figures/image31.jpeg}
+
+Des êtres homonymes peuvent se différencier par leur manière
+d'être dans une situation qui leur est propre.
+
+Ainsi, deux personnes de nom "Paul" peuvent se différencier par leur
+(nom de) famille, ou appartenir à la même famille mais avec des qualités
+distinctes, l'une étant par exemple le père et
+l'autre un fils (ce qui est assez courant).
+
+Nous reviendrons plus loin sur la notion de manière
+d'être.
+
+
+\newpage
+\section{Essence d'une essence}
+
+Beaucoup de philosophes et de logiciens se disputent encore sur
+l'existence ou non des universaux qui correspondent pour
+nous à des essences.
+
+Dans ICEO, une essence est elle-même un être ayant sa propre essence (sa
+"méta essence")\textsuperscript{1}.
+
+En tant qu'être une essence possède une existence unique
+et immuable.
+
+Insistons sur le fait qu'une essence n'a
+pas d'être : \uline{elle est un être}.
+
+Considérons l'exemple suivant~:
+
+\includegraphics{figures/image32.jpeg}
+
+L'essence "978-2-86-497249-5" est subsumée par
+l'essence livre; elle est aussi instance de
+l'essence ouvrage littéraire (sa méta-essence)\footnote{Ce qui correspond à la vision de langages
+	informatiques comme Smalltalk où une classe est instance de sa
+	métaclasse.}.
+
+"978-2-86-497249-5" est la valeur d'un attribut ISBN
+(\emph{International Standard Book Number}) défini au niveau de
+l'essence ouvrage littéraire, qui est moins ambigu que
+son titre.
+
+Les essences ouvrage littéraire, livre et 978-2-86-497249-5 sont
+définies dans une situation générique appelée
+"littérature"\footnote{ L'essence livre définie en
+	littérature ne doit bien sûr pas être confondue avec celle de livre en
+	physique ou en finance.}(non représentée).
+
+Voici une représentation de l'essence ouvrage littéraire
+et de l'essence 978-286-497249-5 avec deux exemplaires :
+
+\includegraphics{figures/image33.jpeg}
+
+Noter qu'en tant qu'être, les attributs d'une essence sont des êtres.
+
+Nous qualifierons les attributs auteur, titre et corps de ouvrage
+littéraire de "prototypes" \footnote{Selon le dictionnaire, un prototype est une oeuvre ou un objet original
+que l'on imite ou reproduit.}, car leur valeur est partagée par toutes les
+instances de l'essence 978-2-86-497249-5. Ce sont ces
+attributs qui font l'originalité de
+l'ouvrage littéraire, qui seraient conservés par copie
+d'un exemplaire. Ce n'est pas le cas des
+attributs comme tirage.
+
+Noter que nous aurions pu prendre le titre "OUMPAH-PAH" de
+l'ouvrage littéraire comme nom pour
+l'essence 978-2-86-497249-5, avec le risque
+d'avoir en littérature un autre ouvrage littéraire de
+même nom.
+
+Les exemplaires instances de l'essence 978-2-86-497249-5
+sont dans une situation individuelle appelée "bibliothèque" (non
+représentée), instance de la situation générique "littérature".
+
+En tant qu'instance de l'essence livre
+(qui subsume l'essence 978-2-86-497249-5), chaque
+exemplaire a une date de création, un propriétaire, un état, ..., qui
+lui sont propres :
+
+\includegraphics{figures/image34.jpeg}
+
+\section{Essence chose}
+
+Toute essence possède une méta-essence.
+
+Par défaut, la méta-essence de toute essence est
+l'essence chose.
+
+L'essence chose est définie dans
+l'absolu et son être est dans le monde. Elle est son
+propre genus et elle est instance d'elle-même (sa
+méta-essence est chose).
+
+\includegraphics[width=2.78681in,height=1.33194in]{figures/image35.jpeg}
+
+Le \emph{differentia} de l'essence chose est vide.
+
+Toute essence est subsumée directement ou indirectement par
+l'essence chose.
+
+Voici un exemple emprunté à la zoologie, où la notion de méta-essence
+est utilisée pour classer des essences :
+
+\includegraphics{figures/image36.jpeg}
+
+L'essence de Pablo est labrador, dont la méta-essence
+est race.
+
+Pablo est un labrador, mais aussi un chien, un canidé, un carnassier, un
+mammifère, un vertébré et un animal.
+
+\textsc{\hfill\break
+}
+
+
+\part{Seconde partie : sur les relations entre les êtres et leurs manières d'être}
+
+
+\chapter{Manière d'être}
+
+Une "manière d'être" ou "qualité"\footnote{Le mot "qualité~" vient
+	du~\href{https://fr.wikipedia.org/wiki/Latin}{latin}~"qualitas"~qui
+	signifie "manière d'être"} est
+une essence qui qualifie une autre essence.
+
+En tant qu'essence, une manière d'être
+est définie dans une situation générique.
+
+Nous utiliserons le symbole graphique
+\includegraphics[width=0.40505in,height=0.25428in]{figures/image37.png}
+pour représenter une manière d'être.
+
+Exemple :
+
+\includegraphics{figures/image38.jpeg}
+
+Dans cet exemple, célibataire est une manière d'être
+définie dans la situation générique "situation maritale
+d'un individu" définie sans "situation maritale"
+elle-même définie dans l'absolu.
+
+Une manière d'être peut être liée à une autre manière
+d'être, mais n'est jamais un attribut de
+l'essence d'un être (ne rentre pas dans
+son differentia). Ainsi dans cet exemple, célibataire ne pourrait être
+un attribut de personne.
+
+Une manière d'être "qualifie" une essence. La relation
+converse de "qualifie" est "peut être" ou "est" suivant le caractère
+accidentel ou essentiel de la manière d'être, que nous
+analyserons plus loin.
+
+Il est important de noter qu'une manière
+d'être ne peut être définie sans préciser
+l'essence à laquelle elle fait référence
+(qu'elle qualifie).
+
+Un attribut d'une manière d'être peut
+être une essence qui n'est pas une manière
+d'être.
+
+Ainsi, considérons le graphe suivant :
+
+\includegraphics{figures/image39.jpeg}
+
+L'essence joie est ici attribut de
+l'essence joyeux qui est une manière
+d'être. Nous pourrions exprimer de la même façon
+qu'être courageux implique d'avoir du
+courage, qu'être fatigué implique
+d'avoir de la fatigue, qu'être bleu
+implique d'avoir de la bleuité, ...
+
+\section{Manières d'être essentielles ou accidentelles}
+
+Une manière d'être peut être essentielle ou
+accidentelle.
+
+Une manière d'être essentielle rentre dans la définition
+d'une essence.
+
+Ainsi en est-il d'être chanteur pour passereau,
+d'être mortel pour être vivant, ...
+
+Ainsi, la manière d'être "mortel" est essentielle pour
+"être vivant" :
+
+\includegraphics{figures/image40.jpeg}
+
+La relation qui lie une essence à une manière d'être
+essentielle sera dénotée par le mot "est".
+
+Autre exemple : La manière d'être "blanche" est
+essentielle pour la neige :
+
+\includegraphics{figures/image41.jpeg}
+
+Ce graphe est la représentation d'un exemple de George
+Boole dans "Les lois de la pensée" : "La neige est blanche est, pour les
+objectifs de la logique, équivalente à l'expression la
+neige est une chose blanche".
+
+Noter qu'une essence peut être définie par une manière
+d'être essentielle.
+
+Exemple :
+
+\includegraphics{figures/image42.jpeg}
+
+Ainsi, être maire est une qualité essentielle de
+l'essence maire !
+
+Contrairement à une manière d'être essentielle, une
+manière d'être accidentelle ne rentre pas dans la
+définition d'une essence.
+
+Ainsi, pouvoir être marié ou célibataire ne sont pas des manières
+d'être essentielles pour personne.
+
+Une manière d'être accidentelle est définie dans une
+situation générique qui lui est propre.
+
+Une essence hérite des manières d'être de son genus, que
+celles-ci soient essentielles ou accidentelles.
+
+Ainsi, si passereau est chanteur par définition (il
+s'agit d'une manière
+d'être essentielle) alors canari est chanteur (car
+passereau subsume canari).
+
+Cette règle s'applique également aux manières
+d'être accidentelles.
+
+Ainsi, si passereau peut-être malade, alors canari peut être malade.
+
+\includegraphics{figures/image43.jpeg}
+
+Le symbole
+\includegraphics[width=2cm]{figures/image44.jpeg}
+représente un état (ici l'état malade de Titi). La
+notion d'état est présentée un peu plus loin.
+
+Les essences indénombrables (qualifiées par certains de substances
+"massières") comme l'eau, la fortune, ... , ont une
+manière d'être qui est leur quantité. Celle-ci est
+déterminée à l'aide d'une grandeur
+mesurable à laquelle est associée une unité, comme la longueur, le
+volume, l'énergie, la masse, ...
+
+Une essence~comme chat qui est de nature nombrière~(dénombrable) peut
+abusivement être considérée comme une substance massière si on la
+confond avec la substance "viande de chat".
+
+En ce sens, "du chat" + "du chat" donne "du chat" en plus grande
+quantité, et "du chat" peut avoir du goût (il paraît même que c'est
+meilleur que "du lapin" !).
+
+\newpage
+\section{Relations entre manières d'être}
+
+Une manière d'être peut être en relation avec une autre
+manière définie dans la même situation générique.
+
+Les relations définies entre les manières d'être sont
+généralement bidirectionnelles (corrélatives).
+
+Le graphe suivant définit une relation entre les manières
+d'être accidentelles épouse et époux définies dans la
+situation de couple :
+
+\includegraphics{figures/image45.jpeg}
+
+Noter qu'homme et femme ne sont pas ici attributs
+l'un de l'autre dans
+l'absolu. Ils sont liés par leur situation de couple.
+
+Dire qu'une femme a un homme pour époux si elle est
+épouse est un raccourci de langage, car un homme époux
+n'est pas un attribut de "sa" femme.
+
+Le mot "a" n'est pas utilisé ici pour exprimer une
+relation de composition, mais une association.
+
+Voici un autre exemple portant sur la situation de famille :
+
+\includegraphics{figures/image46.jpeg}
+
+mère et fille sont des manières d'être pour femme, et
+père et fils sont des manières d'être pour homme.
+
+La manière d'être fille est liée à la manière
+d'être mère et réciproquement, et la manière
+d'être fils est liée à la manière d'être
+père et réciproquement.
+
+La manière d'être orphelin n'est pas
+définie dans la situation générique de famille mais dans celle
+d'orphelin.
+
+\newpage
+\section{Subsomption des manières d'être}
+
+En tant qu'essence, une manière d'être
+ne peut avoir plusieurs genus mais peut subsumer
+d'autres essences.
+
+Ainsi, dans la situation générique "famille", la manière
+d'être "parent" subsume les manières
+d'être "mère" et "père", et la manière
+d'être "enfant" subsume les manières
+d'être "fille" et "fils".
+
+Représentation graphique :
+
+\includegraphics{figures/image47.jpeg}
+
+Une essence hérite des manières d'être de son genus qui
+n'ont pas été spécialisées.
+
+Un être ne peut subsumer une manière d'être ou être
+subsumé par une manière d'être, et réciproquement.
+
+Les manières d'être forment une hiérarchie indépendante
+de la hiérarchie des essences.
+
+La seule manière d'être essentielle possible de
+l'essence chose étant d'être elle-même,
+nous conviendrons que la manière d'être chose est
+également la racine de la hiérarchie des manières
+d'être.
+
+Noter que si une essence ne peut être attribut d'elle
+même, rien n'empêche une manière d'être
+d'être attribut d'elle même (ainsi dans
+cet exemple soeur est attribut d'elle même).
+
+\newpage
+\section{Manière d'être d'une manière d'être}
+
+Une manière d'être peut être celle d'une
+autre manière d'être.
+
+Ainsi par exemple, dans le graphe suivant soeur est une manière
+d'être de la manière d'être fille, et
+frère est une manière d'être fils :
+
+\includegraphics{figures/image48.jpeg}
+
+Dans cet exemple frère qualifie homme en tant que fils et soeur qualifie
+femme en tant que fille.
+
+Dans cet autre exemple homme peut être fidèle en tant
+qu'époux :
+
+\includegraphics{figures/image49.jpeg}
+
+\chapter{Etat}
+
+Un état est une instance de manière d'être
+d'un autre être qui est son étant. Il est inclus dans
+une situation individuelle qui est instance de la situation générique de
+la manière d'être dont il est instance.
+
+Un état peut être un attribut d'un autre état, mais
+n'est jamais un attribut d'un être.
+
+Habituellement, un état porte par défaut le même nom que son essence.
+Ainsi, époux est par défaut le nom de tout état instance de la manière
+d'être époux. Ceci peut être une source
+d'ambiguïté.
+
+Un état d'un être lui est propre. Ainsi, si deux hommes
+sont époux, leur état époux est différent.
+
+L'un peut être un époux heureux et
+l'autre moins.
+
+Un état se situe dans un espace spatio-temporel. Le temps
+d'un état est inclus dans celui de son étant.
+
+L'incompatibilité entre certaines manières
+d'être se traduit par l'incompatibilité
+des états instances de ces manières d'être.
+
+Ainsi, les manières d'être célibataire et époux pour
+l'essence homme sont incompatibles; il en résulte
+qu'une instance d'homme ne peut être à
+la fois dans les états célibataire et époux.
+
+Nous utiliserons le symbole graphique
+\includegraphics[width=0.58997in,height=0.33713in]{figures/image50.png}
+pour représenter un état.
+
+Le graphe suivant exprime que Marie est dans l'état
+épouse :
+
+\includegraphics{figures/image51.jpeg}
+
+Un attribut d'un état peut être un être.
+
+Considérons le graphe suivant :
+
+\includegraphics{figures/image52.jpeg}
+
+L'être joie est ici attribut de l'état
+joyeux.
+
+Paul étant joyeux, il éprouve une joie qui lui est propre, plus ou moins
+intense.
+
+Considérons le graphe suivant :
+
+\includegraphics[width=14cm]{figures/image53.jpeg}
+
+Il exprime le fait que Maya "est dans" son panier.
+
+Noter que beaucoup de prépositions (sur, avec, de, ...) pourraient être
+représentées de la même manière.
+
+
+
+\newpage
+\section{Relations entre états}
+
+Un état peut ou non induire une relation entre différents êtres.
+
+Les relations entre états sont binaires, et sont généralement
+bidirectionnelles (corrélatives).
+
+Considérons le graphe suivant :
+
+\includegraphics{figures/image54.jpeg}
+
+Pierre a "acquis" Marie comme épouse en se mariant. Cet attribut lui est
+apporté par son état d'époux.
+
+Dans cet exemple Marie et Paul ne sont pas attributs
+l'un de l'autre mais sont liés par
+l'intermédiaire de leur état. Du fait de leur situation
+(relation), ils forment un couple dans le monde. Dire que Marie a Paul
+pour époux est un raccourci de langage.
+
+Si Paul était homosexuel, il serait lié à un autre homme par son état
+d'époux.
+
+Les étants de deux états liés sont forcément distincts, même
+s'ils sont instances de la même manière
+d'être. Ainsi, une soeur peut avoir une soeur, mais une
+fille qui est soeur ne peut être soeur d'elle-même.
+
+Si Paul était polygame, ceci impliquerait qu'il ait un
+état d'époux distinct par rapport à chacune de ses
+épouses. Pour l'une, il pourrait être un bon époux tout
+en étant un mauvais époux pour l'autre.
+
+\newpage
+\subsection{Relation entre états différente de la composition}
+
+L'exemple suivant illustre la relation possible entre
+deux êtres qui ne soit pas une relation de composition :
+
+\includegraphics[width=16cm]{figures/image55.jpeg}
+
+On voit que l'attribut 'Pharo by
+example\textquotesingle{} de Paul lui est conféré par son état de
+propriétaire.
+
+Le fait de dire que le propriétaire d'un livre est une
+personne est un raccourci de langage.
+
+Bien sûr, un livre ne rentre pas dans la composition
+d'une personne, et réciproquement !
+
+La même logique s'appliquerait pour dire que Paul a un
+crayon, une veste, ...
+
+\section{Etat dans un état}
+
+Une manière d'être peut être celle d'une
+autre manière d'être, et un état peut donc être celui
+d'un autre état.
+
+Par principe, un état d'un état sera supposé concerner
+le même être (le même étant).
+
+Voici la représentation de l'assertion "Paul est un
+époux fidèle" :
+
+\includegraphics{figures/image56.jpeg}
+
+Ce graphe n'affirme pas que Paul est toujours fidèle,
+mais qu'il est fidèle en tant qu'époux.
+
+
+\newpage
+\section{Effectivité d'une manière d'être}
+
+Une manière d'être peut être permanente ou
+intermittente.
+
+Le temps d'existence d'un état, qui est
+inclus au sens large dans celui de son étant, dépend de
+l'effectivité de la manière d'être dont
+il est instance.
+
+Ainsi, par exemple :
+
+\begin{itemize}
+\item
+  la manière d'être "chanteur" (ou être chantant) de
+  passereau est essentielle mais intermittente : un passereau ne chante
+  pas en permanence.
+\item
+  la manière d'être "mortel" de homme est essentielle et
+  permanente : un homme est mortel toute sa vie, de sa naissance
+  jusqu'à sa mort.
+\item
+  la manière d'être "français" de homme est accidentelle
+  et permanente : un homme qui est né français le sera toute sa vie.
+\item
+  la manière d'être "malade" d'être
+  vivant est accidentelle et intermittente : un être vivant
+  n'est pas forcément malade en permanence.
+\end{itemize}
+
+Un état est permanent (intermittent) s'il est instance
+d'une manière d'être dont
+l'effectivité est permanente (intermittente).
+
+Considérons le graphe suivant :
+
+\includegraphics{figures/image57.jpeg}
+
+Ce graphe illustre le célèbre syllogisme d'Aristote
+donné dans l'Organon : "tout homme est mortel, et comme
+Socrate est un homme, il est mortel".
+
+Noter que ce syllogisme fait abstraction de la notion de temps. Ceci
+n'est compréhensible que parce que la manière
+d'être mortel de l'essence homme est
+permanente.
+
+Autre exemple : l'état célibataire pour un homme
+correspond à une manière d'être accidentelle et
+intermittente.
+
+\includegraphics{figures/image58.jpeg}
+
+Pierre, en tant qu'homme, est dans
+l'état célibataire, mais la manière
+d'être célibataire n'est ni essentielle
+ni permanente dans la définition de l'essence homme.
+
+\raggedbottom
+\chapter{Contraintes structurelles internes}
+
+Les contraintes structurelles au sein d'une essence sont
+des manières d'être essentielles et permanentes imposées
+à ses attributs. Elles peuvent être des contraintes de cardinalité,
+d'identité, de position relative, de longueur, de
+mesure, ..., des attributs.
+
+Ainsi par exemple, les côtés adjacents d'un polygone ont
+une extrémité en commun.
+
+Le graphe suivant exprime que le nez de lapin doit être "entre" ses deux
+oreilles :
+
+\includegraphics{figures/image59.jpeg}
+
+Les manières d'être "entre", "à gauche" et "à droite"
+des essences "nez", "oreille gauche" et "oreille droite" de lapin sont
+essentielles et permanentes. Elles définissent une contrainte
+structurelle interne de l'essence lapin (sont définies
+dans la structure de lapin).
+
+Une contrainte structurelle peut permettre de définir une essence à
+partir d'une essence existante (son genus). Ainsi par
+exemple, c'est une contrainte structurelle de
+cardinalité qui permet de définir l'essence quadrilatère
+à partir de l'essence polygone, en restreignant le
+nombre de ses côtés à 4. Les contraintes au sein d'une
+essence peuvent s'appliquer à des manières
+d'être, par exemple des contraintes de
+dimension\footnote{La subsomption exige le respect ou la spécialisation
+	des contraintes. Ainsi par exemple, si l'envergure
+	maximale d'un avion est actuellement de 97,54~m, celle
+	de toute essence subsumée par avion est inférieure ou égale à cette
+	valeur.} Ainsi, les côtés d'un
+triangle équilatéral ont la même longueur.
+
+
+\enableopenany
+\raggedbottom
+\chapter{Contraintes externes sur les manières d'être}
+
+L'environnement peut exercer des contraintes sur les
+manières d'être possibles d'un être.
+
+Dans le langage courant, il est question de degrés de liberté
+d'un être.
+
+Pour illustrer ce point, prenons l'exemple de la couleur
+de la neige.
+
+\begin{itemize}
+\item
+  dans l'absolu, la neige est blanche. Il
+  s'agit de sa couleur dite "objective", liée aux
+  propriétés physiques de réflexion de la lumière de la neige, qui ne
+  dépend pas de l'éclairage et des capacités de vision
+  du sujet.
+\item
+  sa couleur apparente dépend de l'éclairage.
+\item
+  sa couleur subjective dépend des capacités de vision du sujet.
+\end{itemize}
+
+Supposez que le sujet perçoive la neige éclairée par un beau soleil.
+Elle lui parait blanche. C'est, par définition, sa
+couleur objective.
+
+Supposez que le sujet perçoive la neige éclairée par de la lumière
+rouge. Il verra la neige rouge. II s'agit
+d'une couleur apparente.
+
+Supposez que le sujet porte des lunettes qui filtrent la lumière bleue.
+Il ne verra plus la neige blanche, mais jaune. Il s'agit
+d'une couleur subjective.
+
+Ces manières d'être sont évidemment liées. Ainsi, un
+objet de couleur objective magenta (mélange de lumières bleu et rouge)
+ne pourra jamais apparaître vert ou jaune (mélange de lumières verte et
+rouge).
+
+Ce qui vient d'être dit pour la couleur
+d'un être peut s'appliquer à beaucoup de
+manières d'être, en particulier dans le monde physique.
+
+En informatique, la notion de contrainte est à la base
+d'un paradigme de programmation\footnote{cf. l'ouvrage
+	"Programmation par contraintes\emph{" d'Annick Fron --
+		Eyrolles 1994}}
+permettant de maîtriser la complexité combinatoire de certains
+problèmes.
+
+Noter que les manières d'être possibles
+d'un être peuvent aussi être augmentées par sa relation
+avec d'autres êtres.
+
+C'est ainsi que par exemple une personne peut voler dans
+un avion.
+
+
+\raggedbottom
+\chapter{Êtres inconnus}
+
+Considérons la phrase : "Le meurtrier de Pierre est sadique"
+
+Cette affirmation n'implique pas la connaissance de
+l'identité du meurtrier par celui qui la prononce.
+
+Nous admettrons que cette phrase a un sens, bien que le meurtrier de
+Pierre puisse être inconnu; elle peut être formulée en voyant simplement l'état
+épouvantable de la victime Pierre.
+
+On peut la représenter par le graphe :
+
+\includegraphics{figures/image60.jpeg}
+
+L'essence du meurtrier inconnu est ici supposée être
+l'essence homme. Si plusieurs essences avaient la
+qualité de meurtrier, c'est leur premier genus commun
+qui aurait été choisi comme essence du meurtrier. Si ce genus était
+l'essence chose, le meurtrier serait simplement
+identifié comme étant quelque chose.
+
+La recherche de l'identité du meurtrier peut se faire en
+exploitant les informations connues sur la victime (en particulier ses
+manières d'être). Si la victime était
+l'amant d'une femme mariée, la suspicion
+peut se porter sur le mari de celle-ci.
+
+S'il advenait que cet individu soit identifié, par
+exemple Paul, alors toutes les informations connues sur le meurtrier
+seraient attribuées à Paul.
+
+
+\disableopenany
+\chapter{Actions}
+
+Une action est ce qui produit un effet.
+
+Il peut s'agir pour l'acteur de~réaliser une fin, ou
+d'accomplir une action qui est à elle-même sa fin.~
+
+Cette faculté d'agir se transmet
+lorsqu'un acteur crée un autre acteur, par exemple par
+l'invention de machines dotées de capacités
+d'action. Elle se transmet également entre des êtres
+existants par la communication de savoirs faire.
+
+Toute action peut avoir pour effet la création d'un
+nouvel être ou d'un nouvel état, ou la destruction
+d'un être. La destruction d'un être
+entraine la destruction de tous ses états et donc de ses relations avec
+d'autres êtres.
+
+Une action générique correspond à une manière d'être
+d'une essence, tandis qu'une action
+individuelle correspond à un état d'un être.
+
+Nous dénoterons une action générique par un adjectif verbal ou un verbe
+à l'infinitif.
+
+Exemple :
+
+\includegraphics{figures/image61.jpeg}
+
+Dans l'expression "peut être miaulant", "miaulant" est
+un adjectif verbal qui dénote en français une action non contrainte par
+le temps (ce n'est pas un participe présent).
+L'expression équivalente "peut miauler" est plus
+familière.
+
+Si Félix est en train de miauler, nous exprimerons
+cette action par "Félix \uline{est} miaulant"\footnote{Ce qui correspond à l'utilisation de
+	la forme progressive en anglais : "\emph{Félix is mewing}". Cette
+	expression s'exprimerait en français par "Félix est en
+	train de miauler" ou "Félix miaule"}.
+
+\includegraphics{figures/image62.jpeg}
+
+L'effet de miauler est un miaulement, qui pour Félix
+consiste à émettre le cri "miaou".
+
+
+La situation de définition de miaulant est l'essence
+chat car il s'agit d'une manière
+d'être essentielle.
+
+En tant que manière d'être, une action générique peut en
+subsumer d'autres.
+
+Ainsi, les actions chanter de mésange, hirondelle, ... sont subsumées
+par l'action chanter de passereau.
+
+Une action peut nécessiter une ressource.
+
+Exemple :
+
+\includegraphics{figures/image63.jpeg}
+
+Félix mange un morceau de viande :
+
+\includegraphics{figures/image64.jpeg}
+
+Noter qu'un être utilisé comme ressource
+n'a pas forcément été conçu pour cela.
+
+C'est le cas d'un livre utilisé pour
+coincer une porte, ou d'une baignoire utilisée comme
+abreuvoir dans un champ.
+
+Dans une même situation un être peut avoir plusieurs actions, et deux
+êtres peuvent avoir la même action ou des actions différentes.
+
+Dans le graphe suivant les actions génériques miauler et jouer sont
+essentielles pour chat :
+
+\includegraphics{figures/image65.jpeg}
+
+Dans le graphe suivant l'action générique aboyer est
+également essentielle pour chien :
+
+\includegraphics{figures/image66.jpeg}
+
+
+\section{Déclenchement d'une action}
+
+Un évènement produit (émis) par un être acteur peut déclencher une
+action d'un autre acteur (ou du même acteur) qui le
+perçoit. Une action peut aussi déclencher une autre action.
+
+Une action correspond à une manière d'être
+d'un acteur. Cette action rentre dans la définition de
+l'essence de l'acteur qui la possède (si
+elle est essentielle, comme chanter pour passereau) ou peut la posséder
+(si elle est accidentelle), et non dans la définition de
+l'acteur qui peut la déclencher.
+
+A noter que l'action d'un être est une
+manière d'être qui peut être permanente ou
+intermittente. Une action permanente d'un être est
+déclenchée par sa création.
+
+\subsection{Evènements}
+
+Selon le Littré, un évènement est tout ce qui arrive\footnote{Selon le dictionnaire de l'Académie
+	française, le mot évènement est apparu au XVème siècle, dérivé du mot
+	avènement, du latin evenir, "sortir, se produire", de venire, "venir".}.
+
+En physique, un évènement est tout phénomène se produisant en un point
+et à un instant donnés.
+
+En calcul de probabilités, un évènement est le résultat éventuel d'un
+tirage au sort, d'un jeu de hasard, d'un pronostic, etc.~
+
+Nous retiendrons de ces définitions que l'avènement de
+tout ce qui peut se créer, arriver, se produire, est un évènement.
+
+La notion d'évènement est intimement liée à celles
+d'action mais ne doit pas être confondue avec elle.
+
+Par exemple, le fait d'insérer une pièce dans une
+machine de vente automatique est une action qui produit
+l'évènement "pièce insérée".
+
+Pour éviter la confusion entre les deux notions nous dénoterons
+l'action par "insertion(pièce)" et
+l'évènement résultant par "(pièce)
+insérée"\footnote{Ce qui correspond à l'utilisation de
+	la voix passive en français.}.
+
+L'objet pièce est dans cet exemple un attribut (ou
+paramètre) de l'action et de
+l'évènement.
+
+A noter que le déclenchement, l'exécution et la fin
+d'une action constituent en eux-mêmes des évènements,
+indépendamment de ce que l'action produit.
+
+Une action peut également déclencher une autre action.
+
+Le point commun à tous les évènements est qu'ils
+correspondent à un changement de situation.
+
+
+
+\section{Changement de situation}
+
+Toute action peut avoir pour effet la naissance d'un
+nouvel être ou d'un nouvel état, ou la disparition
+d'un être ou d'un état, ce qui a
+entraîne un changement de la situation dans le monde.
+
+Ainsi, la définition d'une action peut faire intervenir
+des êtres.
+
+Mais comment des êtres ou des états, qui se situent au niveau
+individuel, peuvent-ils être représentés au niveau générique ?
+
+Il s'agit d'êtres que nous qualifierons
+d'acteurs (ou de rôles) indéterminés.
+
+Pour éclairer ce sujet nous allons repartir d'un exemple
+précédent portant sur la situation maritale d'un homme
+et d'une femme.
+
+Le graphe suivant illustre les changements d'états de
+Marie et de Pierre qui passent respectivement de l'état
+célibataire à celui d'épouse et d'époux
+par l'effet de leur mariage :
+
+\includegraphics{figures/image67.jpeg}
+
+Comment pouvons nous définir l'essence de
+l'action marier au niveau générique ?
+
+Le mariage ne correspond pas à une transition entre manières
+d'être d'une essence mais à un
+changement d'état d'êtres.
+
+Considérons les cas d'utilisation\footnote{Le formalisme des cas d'utilisation
+	a été proposé par Yvar Jacobson (l'un des auteurs
+	d'UML) en 1992 dans un langage de modélisation nommé
+	OOSE (\emph{Object Oriented Software Engineering}) pour décrire les
+	acteurs et le comportement d'un système réactif.}
+suivants, qui décrivent le déroulement logique du mariage
+d'un homme et d'une femme par un maire :
+
+\textbf{Cas d'utilisation : mariage}
+
+\begin{itemize}
+\item
+  \uline{acteurs} : un homme, une femme, un maire
+\item
+  \uline{préconditions} : bans publiés depuis au moins 10 jours, sans
+  que quiconque n'ait fait opposition au mariage.
+\item
+  \uline{description}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{quote}
+  Le maire demande à l'homme et à la femme
+  d'échanger leur consentement.
+  \end{quote}
+\item
+  \begin{quote}
+  Ils eurent beaucoup d'enfants (hors sujet)
+  \end{quote}
+\end{enumerate}
+
+La publication des bans est un prérequis pour vérifier que rien ne
+s'oppose au mariage; en particulier que
+l'homme et la femme sont célibataires et sont majeurs.
+
+\textbf{Cas d'utilisation : publication des bans}
+
+\begin{itemize}
+\item
+  \uline{acteurs} : un homme, une femme, une mairie
+\item
+  \uline{préconditions} : l'homme ou la femme doivent
+  avoir des liens durables avec la commune où aura lieu le mariage.
+\item
+  \uline{description}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  L'homme et la femme rédigent une annonce de mariage et
+  la transmettent à la mairie
+\item
+  La mairie publie l'annonce
+\end{enumerate}
+
+Qui sont la femme, l'homme et le maire qui apparaissent
+dans ces cas d'utilisation ? Ils sont indéterminés.
+
+Noter que le lieu et la date de mariage, bien
+qu'indéterminés dans ces cas
+d'utilisation, sont toutefois contraints dans
+l'espace-temps par la nécessité du respect
+d'un délai pour la publication des bans.
+
+Les changements d'états de l'homme et de
+la femme correspondent à des éventualités définies au niveau générique,
+où les manières d'être époux et épouses sont compatibles
+entre elles mais sont incompatibles avec la manière
+d'être célibataire.
+
+L'action du maire a pour effet de détruire la situation
+de célibataire de l'homme et de la femme avant leur
+mariage pour les faire passer dans une situation de couple. Elle enlève
+à la femme son état célibataire pour lui affecter son nouvel état
+d'épouse, enlève à l'homme son état
+célibataire pour lui affecter son nouvel état d'époux et
+lie les nouveaux états de manière corrélative.
+
+Le mariage d'une femme et d'un homme est
+représenté dans le graphe suivant :
+
+\includegraphics{figures/image68.jpeg}
+
+L'action générique marier définit une transition entre
+les deux \uline{situations} avant et après mariage d'un
+homme et d'une femme.
+
+Nous aurions pu désigner les êtres indéterminés un homme et une femme
+par des symboles comme xy et xx.
+
+Les logiciens appellent ces symboles des variables liées. Ceci ne se
+justifie pas ici dans la mesure où l'action marier ne
+met en jeu qu'une seule femme et qu'un
+seul homme. Ceci aurait pu être utile si nous avions décrit le mariage
+de deux hommes ou de deux femmes.
+
+Les deux états célibataires n'ont pas besoin
+d'être identifiés par des noms propres, car ils se
+distinguent par leur étant respectif : "un homme" ou "une femme".
+
+La localisation spatio-temporelle du mariage n'est pas
+représentée dans la mesure où elle n'intervient pas dans
+la logique du mariage.
+
+Les actions s'exécutent dans
+l'espace-temps, mais le temps
+n'intervient pas forcément dans la logique des
+situations qui est généralement causale et non temporelle.
+
+Il est possible que l'action marier ait un "effet de
+bord" qui porte sur un contrat de mariage.
+
+Cet exemple est évidemment traité de manière très simpliste. Il suppose
+en particulier que la naissance d'un couple par
+l'action marier se fait à partir d'une
+paire de personnes comprenant un homme et une femme célibataires, mais
+sans préciser ce qui a eu pour effet de constituer cette paire de
+personnes candidates au mariage !
+
+Pour que le mariage puisse avoir lieu, il faut que une femme et un homme
+soient au rendez-vous pour celui-ci.
+
+D'une manière générale, beaucoup
+d'actions nécessitent la constitution préalable
+d'un ensemble d'êtres (leur mise en
+situation) concernés par cette action.
+
+Noter qu'un changement de situation peut se faire sans
+modifier les êtres concernés (n'affecter que leurs
+états).
+
+D'une manière générale, les êtres qui interviennent dans
+la définition d'une action générique sont des êtres
+(acteurs) indéterminés.
+
+Voici une interprétation (un ancrage) possible d'un
+mariage dans le monde :
+
+\includegraphics{figures/image69.jpeg}
+
+\section{Interactions entre acteurs}
+
+Le comportement d'un acteur peut être actif ou réactif.
+
+Nous dirons qu'il est actif lorsque
+c'est l'acteur qui déclenche une action,
+et réactif lorsque son action est une réaction à un évènement produit
+par un autre acteur (ou lui-même).
+
+L'action d'un acteur peut dépendre ou
+non de l'effet de ses actions antérieures. Ainsi,
+l'action d'une machine à laver est en
+principe identique à chaque lessive, tandis que
+l'essorage, qui n'est
+qu'une étape de chaque lessive, est conditionné par le
+fait que l'action de rinçage soit terminée.
+
+Voici la représentation de la réaction possible d'un
+distributeur automatique de boissons (système réactif que tout le monde
+connait) lorsqu'une première pièce est insérée par un
+client :
+
+\includegraphics[width=4.65347in,height=2.91946in]{figures/image70.jpeg}
+
+La réaction est un changement de situation du distributeur de boissons,
+de la situation disponible à la situation encaissement où il attend
+l'insertion d'une nouvelle pièce ou le
+choix du type de boisson à distribuer. 
+
+A noter que chaque situation ne
+comporte dans cet exemple qu'un seul état du même être
+(un distributeur de boissons). Nous pourrions représenter le comportement d'un distributeur de boissons sous la forme d'un 
+statechart\footnote{Le formalisme des statecharts est un mode de
+	représentation visuelle qui étend celui des machines à états finis, en
+	particulier pour modéliser la concurrence.
+	
+	UML a adopté, avec celui des statecharts, le formalisme des diagrammes
+	d'activités qui sont en réalité une forme simplifiée des
+	réseaux de Petri}. Ce formalisme a été conçu par David
+Harel pour modéliser le comportement des systèmes réactifs à des
+événements discrets.
+
+Pour un lecteur qui connait ce formalisme, voici quelques points sur
+lesquels le formalisme ICEO diffère.
+
+Dans ICEO :
+
+\begin{itemize}
+\item
+  Les transitions ne se font pas uniquement entre états mais entre
+  situations qui peuvent inclure différents états d'un
+  même être ou les états de différents êtres (comme dans notre exemple
+  du mariage).
+\item
+  Les états sont instances d'actions qui sont des
+  manières d'être.
+\item
+  A l'imbrication d'états dans les
+  statecharts correspond la subsomption de manières
+  d'être dans ICEO.
+\end{itemize}
+
+
+\subsection{Scénarios}
+
+La logique d'enchainement des situations décrite dans
+les cas d'utilisation n'est généralement
+pas temporelle mais causale.
+
+Un scénario correspond à un déroulement possible d'un
+cas d'utilisation.
+
+Dans un scénario le temps impose de nouveau sa loi (sa flèche) :
+
+\begin{itemize}
+\item
+  Les évènements se différencie suivant l'instant où ils
+  se produisent.
+\item
+  Un scénario ne comporte plus d'alternatives ni
+  d'itérations.
+\end{itemize}
+
+Un scénario possible pour l'achat d'une
+boisson est :
+
+\includegraphics[width=13cm]{figures/image73.jpeg}
+
+Ce type de graphe est usuellement appelé un diagramme de séquence
+d'évènements.
+
+Noter que le monde où s'exécutent les scénarios reste
+fictif\footnote{fictif est un adjectif qui qualifie ce qui
+	n'est pas réel} car les acteurs sont indéterminés.
+
+Un scénario se présente comme une pièce de théâtre où
+l'écrivain décrit des rôles qui dans la réalité seront
+joués par des acteurs réels.
+
+
+\chapter{Pour conclure sur cette présentation des concepts}
+
+En français nous n'avons qu'un seul mot
+"être" pour désigner l'acte d'être
+(esse) et ce qui est (ens).
+
+Dans son ouvrage "L'Etre et l'Essence"
+{[}Gilson, 72{]}, Etienne Gilson préfère utiliser le mot "étant" pour
+désigner l'ens, et réserve le mot être pour signifier ce
+que Saint Thomas nommait "esse", ou "actus essendi", ce qui est
+l'acte en vertu duquel un étant est un être actuel,
+qu'il existe.
+
+Aristote considérait déjà la question "qu'est-ce que
+l'être ?" comme devant être le souci constant des
+philosophes. De fait, de nombreux philosophes et logiciens se sont
+penchés sur cette question métaphysique de l'être.
+
+C'est une banalité de dire qu'un être ne
+peut pas se créer lui-même. La notion d'être est donc
+indissociable de celle de sujet créateur.
+
+Dans notre formalisme, une essence, qui répond à la notion
+d'universel des philosophes, possède une existence propre. En tant
+qu'être, elle est instance de son essence.
+
+\textbf {Les relations entre les êtres sont induites par leurs manières
+d'être dans certaines situations.}
+
+Un point qui n'aura pas échappé à nos lecteurs est
+l'amphibologie du mot "est" dans le formalisme ICEO, que
+l'on constate également en français\footnote{ Les langues indo-européennes ont toutes un terme
+	équivalent au verbe être français, ce qui n'est pas le
+	cas de toutes les langues (en particulier les langues austronésiennes,
+	le chinois, le japonais, ...) où les différents sens du verbe être
+	s'expriment avec d'autres tournures de
+	phrase.}.
+
+Le sens premier du verbe être en français est celui
+d'exister. C'est la forme intransitive
+du verbe être, utilisée si l'on affirme que "Paul
+\textbf{est}".
+
+Mais considérons par exemple les phrases suivantes :
+
+\begin{itemize}
+\item
+  Paul \textbf{est} un homme dans le monde
+\item
+  être homme c\textquotesingle{}\textbf{est} être vivant dans
+  l'absolu
+\item
+  l'homme \textbf{est} mortel dans le temps
+\item
+  Paul \textbf{est} grand dans l'espace
+\item
+  Paul \textbf{est} époux dans son couple
+\item
+  Paul \textbf{est} dans sa maison
+\item
+  Paul \textbf{est} en train de dormir dans son lit
+\end{itemize}
+
+Ces exemples illustrent faiblement l'amphibologie du mot "est" dans la langue française.
+
+Le mot "a" est quant à lui utilisé dans ICEO pour exprimer une
+composition (comme dans "le chat \textbf{a} une queue") ou une relation
+induite par une manière d'être (comme dans "Pierre
+\textbf{a} pour épouse Marie").
+
+Si certains concepts d'ICEO se situent dans le domaine du TAL (traitement automatique des langues), avec la possibilité de modéliser le sens des noms, des adjectifs, des prépositions, des verbes (y compris les auxiliaires pouvoir et devoir), des adverbes, ...,  ils pourraient aussi être pris en compte dans les langages destinés à la modélisation et la conception des systèmes, comme UML.
+
+Ils pourraient être également mis à profit selon nous en logique
+des situations telle que décrite par Jon Barwise et John Perry\footnote{ cf. les ouvrages "\emph{Situations and attitudes"}
+	de Jon Barwise et John Perry publié par le MIT en 1983 et "\emph{Logic
+		and information}" de Keith Devlin publié par Cambridge Univerity Press
+	en 1991} où les
+"\emph{basic building blocks}" sont les individus, leurs propiétés,
+leurs relations et leur localisation.
+
+Notre lecteur l'aura compris, ICEO est avant tout un langage déclaratif.
+
+Toutefois, le formalisme ICEO a été implanté en Smalltalk qu'il
+épouse parfaitement; il bénéficie ainsi de la puissance de ce langage pour écrire des algorithmes.
+
+Dans un document annexe dont le titre est "ICEO\_by\_example" nous
+présentons le langage textuel d'ICEO 
+avec une série d'exemples.
+
+Ce document, le code source d'ICEO et les exemples peuvent être téléchargés librement à l'adresse
+
+https://github.com/rodejaphgh/ICEO
+
+Il serait selon nous envisageable de concevoir une évolution de
+Smalltalk qui prenne en compte certains concepts
+d'ICEO, en particulier :
+
+\begin{itemize}
+\item
+  le morphisme existant entre la structure des essences et celle des
+  êtres.
+  \item
+  la notion de situation
+\item
+  la distinction fondamentale entre les notions d'être
+  et de manière d'être
+\end{itemize}
+
+En Smalltalk, une classe définit les attributs de ses instances (par des
+variables d'instance) mais la structure elle-même des classes est sans relation
+avec celle de ses instances. La construction des instances repose sur la notion de méthode de classe (comme la méthode "new". Cette approche est plus procédurale que déclarative). 
+
+Si dans ICEO une essence comme celle de
+chat possède les essences attributs tête, patte et queue, ses instances
+auront automatiquement les êtres attributs tête, patte et queue avec la cardinalité et
+les contraintes de structure définies au niveau essence.
+
+La notion de manière d'être rend la notion
+d'héritage multiple superflue.\footnote{ La version Pharo de Smalltalk que nous avons utilisée offre un mécanisme appelé "traits" pour
+	partager des fragments de classe (comportement et état) entre des
+	classes non liées. Ceci va dans le sens d'une prise en compte 
+	de la notion de manière d'être.}
+
+Ainsi, par exemple, pour exprimer qu'un hydravion
+possède les caractéristiques à la fois d'un avion et
+d'un bateau, il convient tout d'abord
+dans ICEO de décider s'il s'agit par
+essence d'un objet volant ou d'un objet
+flottant. Le choix du premier cas est le plus logique, car un hydravion
+est fait avant tout pour voler.
+
+Il est donc logique de définir hydravion comme ayant pour
+\uline{genus} avion et comme \uline{manière
+d'être} le fait de pouvoir flotter.
+
+
+
+
+\chapter{Bibliographie}
+
+{[}Fron, 94{]} Annick Fron : "Programmation par contraintes", Eyrolles
+
+{[}Barwise, 88{]} Jon Barwise : "The situation in logic", Center For the
+Study of Language an Information
+
+{[}Barwise \& Perry, 83{]} Jon Barwise \& John Perry : "Situations and
+Attitudes"", CSLI
+
+{[}Berkeley, 1710{]} George Berkeley : "Principes de la connaissance
+Humaine", traduction de Dominique Berlioz, Flammarion, 91.
+
+{[}Bobrow \& Winograd, 77{]} Daniel G. Bobrow et Terry Winograd : "An
+overview of KRL, a knowledge representation language", Cognitive
+Sciences
+
+{[}Böhm \& Jacopini, 66{]} Corrado Böhm, Giuseppe Jacopini :"Flow
+diagrams, Turing Machines and Languages with only two formation rules",
+ICS, Rome
+
+{[}Borning, 79{]} A. Borning et T. O'Shea "THINGLAB : A
+constraint-oriented simulation laboratory, PhD Thesis, Standford
+University
+
+{[}Bourgeois, 90{]} Robert Bourgeois "Intension, coréférences et objets
+dans la fédération de formalismes de spécification" Thèse de doctorat de
+3\textsuperscript{ème} cycle, Université Pierre \& Marie Curie
+
+{[}Brachman, 77{]} Ronald J. Brachman : "What is a concept : Structural
+Foundations for Semantics Networks", International Journal of
+Man-Machine Studies 9 (2), pp.127-152
+
+{[}Briot, 85{]} Jean-Pierre Briot : "Instanciation et héritage dans les
+langages objets". Thèse de 3\textsuperscript{ème} cycle, Paris
+
+{[}Cointe \& Briot, 89{]} Pierre Cointe, Jean-Pierre Briot "ClassTalk :
+une transposition des métaclasses ObjVLisp à Smalltalk-80". RFIA, Paris
+pp. 127-146
+
+{[}Dahl \& Nygaard, 66{]} O.J. Dahl, K. Nygaard "Simula : an algol-based
+simulation language". Communications of the ACM. 9: 671:678
+
+{[}Dahl \& al., 70{]} O.J. Dahl, K. Nygaard, B. Myhraug "Simula-67
+Common Base Language". SIMULA information, S22, Norvegian Computing
+Center, Oslo, Norway
+
+{[}Demailly, 87{]} Gilles Demailly "Maintenance de cohérence entre la
+spécification de besoins, la conception et le codage de logiciels".
+Document interne THOMSON-CSF
+
+{[}Desclaux, 87{]} Christine Desclaux "Cameras sur Théâtre :
+canalisation de méthodologies, représentation assistée
+d'un système"
+
+{[}Desclaux \& Bourgeois, 87{]} C. Desclaux, R. Bourgeois "ECCAO :
+Etablissement des Cahiers des Charges Assistée par Ordinateur" Premières
+journées Internationales : le Génie Logiciel \& ses applications. pp.
+1345-1364. Toulouse
+
+{[}Devlin, 91{]} Keith Devlin : "Logic and Information", Cambridge
+University Press
+
+{[}Ducasse \& al., 2022{]}
+\href{http://stephane.ducasse.free.fr/}{Stéphane Ducasse}, Gordana
+Rakic, Sebastian Kaplar, Quentin Ducasse : "Pharo by Example 9 -- 2022"
+téléchargeable à l'adresse
+https://github.com/SquareBracketAssociates/PharoByExample9/
+
+{[}Dyer, 83{]} Michael G. Dyer "In-depth understanding" MIT
+
+{[}Einstein, 44{]} Albert Einstein : "Remarks on Bertrand
+Russell's theory of knowledge", Vol. V of ''The Library
+of Living Philosophers,'' édité par Paul Arthur Schilpp
+
+{[}Ferber, 89{]} Jacques Ferber "Objets et agents : une étude des
+structures de représentation et de communication en inteligence
+artificielle". Thèse d'état, LITP Université Paris VI
+
+{[}Gardies, 2004{]} Jean-Louis Gardies : "Du mode
+d'existence des êtres de la mathématique", Librairie
+philosophique J. Vrin
+
+{[}Gilson, 2018{]} Etienne Gilson : "L'être et
+l'essence", Librairie philosophique J. Vrin
+
+{[}Harel, 84{]} David Harel, "Statecharts: A Visual Formalism for
+Complex Systems " Science of Computer Programming, The Weizmann
+Institute of Science
+
+{[}Hewitt, 69{]} C. Hewitt, "PLANNER : A language for manipulating
+models and proving theorems in a robot" Int. Joint Conf. Artificial
+Intelligence, Washington D.C.
+
+{[}Hewitt, 71{]} C. Hewitt, "Procedural Embedding of Knowledge in
+PLANNER" Int. Joint Conf. Artificial Intelligence, London
+
+{[}Hewitt, 77{]} C. Hewitt, "Viewing control structures as patterns of
+passing messages" Artificial Intelligence, 8: 323-364
+
+{[}Hume, 1739{]} David Hulme : "Traité de la nature humaine"
+
+{[}Jacobson, 92{]} Ivar Jacobson : "OOSE : Object-Oriented Software
+engineering", ACM Press
+
+{[}Jean \& al., 90{]} Françoise Jean, G. Demailly, Robert Bourgeois
+"FANFOO : an object oriented framework for event driven simulations
+using distributed AI Techniques" TOOLS pp. 491-499
+
+{[}Kant, 1787{]} Emmanuel Kant :
+"\href{https://fr.wikipedia.org/wiki/Critique_de_la_raison_pure}{Critique
+de la raison pure}" Traduction par François Picavet, Librairie Félix
+Alcan
+
+{[}Kay, 68{]} Alan Kay "FLEX : A flexible extendible language". Computer
+Science Dept. Technical report, University of Utah
+
+{[}Kay, 69{]} Alan Kay "The reactive machine" Doctoral dissertation,
+University of Utah
+
+{[}Kayser, 88{]} Daniel Kayser : "Le raisonnement à profondeur
+variable", actes des 2èmes journées internationales du GRECO-P.R.C.
+d'intelligence artificielle, éditions Teknéa
+
+{[}Kayser, 97{]} Daniel Kayser : "La représentation des connaissances",
+Hermès
+
+{[}Krief, 90{]} Philippe Krief "MPVC : Un système interactif de
+construction d'environnements de prototypage de
+multiples outils d'interprétation de modèles de
+représentation". Thèse d'université de Pierre \& Marie
+Curie
+
+{[}Leibniz, 1704{]}
+~\href{https://fr.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Gottfried
+Wilhelm Leibniz}~: "Nouveaux Essais sur l'entendement
+humain"
+
+{[}Liebermann, 86{]} Henry Liebermann " Using protypical objects to
+implements shared behavior in object oriented systems" OOPSLA
+Proceedings
+
+{[}Locke, 97{]} John Locke : " Essai sur l'entendement humain ",
+traduction par Pierre Coste, J. Vrin, 72
+
+{[}Masini \& al., 89{]} G. Masini, A. Napoli, D. Colnet, D. Léonard, K.
+Tombre : " Les langages à objets ", InterEditions
+
+{[}McCarthy \& al., 62{]} J. McCarthy, J. P. W. Abrahams, D.J. Edwards,
+T.P. Hart, M. I. Levin "LISP 1.5 Programmer's Manual".
+MIT Press, Cambridge, MA
+
+{[}McCarthy, 63{]} J. McCarthy "A basis for a mathematical theory of
+computation". P. Bradford and D. Hirschberg (Eds), Computer programming
+and formals systems. Amsterdam, North-Holland
+
+{[}Minsky, 68{]} Marvin Minsky : "\emph{Semantic information
+processing"}, MIT press
+
+{[}Minsky, 86{]} Marvin Minsky : "\emph{The Society of Mind"}, New
+York,~\href{https://fr.wikipedia.org/wiki/Simon_\%26_Schuster}{Simon \&
+Schuster}
+
+{[}Pachet, 90{]} François Pachet "Mixing rules and objects : an
+experiment in the world of Euclidean geometry" Rapport LAFORIA
+
+{[}Parry \& Hacker, 91{]} William T. Parry \& Edward A. Hacker :
+"\emph{Aristotelian logic"}, State University of New York Press
+
+{[}Quilian, 68{]} M. Ross Quilian "Semantic memory" dans {[}Minsky,
+68{]}
+
+{[}Quine, 86{]} William Van Orman Quine : "\emph{Le mot et la chose"},
+Flammarion
+
+{[}Riesbeck, 75{]} Christopher K. Riesbeck " Conceptual analysis" dans
+{[}Schank, 75{]}
+
+{[}Robinson, 50{]} Richard Robinson : "Definition", Oxford University
+Press
+
+{[}Russel, 1903, 1937{]} Bertrand Russel : "The principles of
+Mathematics"
+
+{[}Russel, 1905{]} Bertrand Russel : "On denoting" revue Mind
+
+{[}Schank, 75{]} R.G. Schank " Scripts Plans Goals and undestanding --
+an inquiry to human knowledge structures" LEA
+
+{[}Sowa, 84{]} John F. Sowa : "Conceptual Structures. Information
+Processing In Mind and Machine", Addison Weslay
+
+{[}Strawson, 50{]} P.F. Strawson "On referring" revue Mind
+
+{[}Sussman \& McDermott, 72{]} G. Sussman \& D. McDermott "From planner
+to CONNIVER" AFIPS
+
+{[}Tarsky, 69{]} Alfred Tarsky "Introduction à la logique", Paris --
+Gauthier-Villars
+
+{[}Wertz, 85{]} Harald Wertz "Intelligence artificielle, application à
+l'analyse de programmes" Masson Paris New York
+
+{[}Wertz, 2015{]} Harald Wertz "Programmation orientée objet avec Smalltalk. Classes, instances, messages et héritage" Editions ISTE 
+
+{[}{]}Woods, 75{]} W.A. Woods "What's in a link :
+foundations for semantic networks" Cognitive Science
+
+
+
+\end{document}
