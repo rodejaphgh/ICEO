@@ -8,6 +8,46 @@ Class {
 	#package : 'ICEO'
 }
 
+{ #category : 'utile' }
+ICEO class >> ICEO [
+	"Méthode de classe d'ICEO. 
+	Permet que les lignes évaluées en bloc le soient en séquence et d'attraper les exceptions de classe Oups" 
+
+	RubSmalltalkEditor
+		compile: 'evaluateSelection
+	| node aString |
+	node := RBParser parseExpression: self selectionForDoitAsStream contents.
+	(node class == RBVariableNode or: [node class == RBMessageNode]) ifTrue: [
+		[ OpalCompiler new evaluate: node newSource ]
+			on: Oups
+			do: [ :ex |
+				SpInformDialog new
+					title: '''';
+					extent: 600 @ 120;
+					label: ex description;
+					acceptLabel: ''OK'';
+					openDialog. 
+				Transcript clear; show: node newSource ]].
+
+	node class == RBSequenceNode ifTrue: [
+		[
+		node statements do: [ :each | aString := each newSource.
+			Semaphore new
+				waitTimeoutMilliseconds: 10
+				onCompletion: [  ]
+				onTimeout: [ OpalCompiler new evaluate: each newSource ] ] ]
+			on: Oups
+			do: [ :ex |
+				SpInformDialog new
+					title: '''';
+					extent: 600 @ 120;
+					label: ex description;
+					acceptLabel: ''OK'';
+					openDialog. 
+				Transcript clear; show: aString ]]'
+		classified: 'do-it'
+]
+
 { #category : 'worldMenu' }
 ICEO class >> addReset: aBuilder [
 <worldMenu>
@@ -226,6 +266,46 @@ ICEO class >> buildIcons [
 
 
 	
+]
+
+{ #category : 'utile' }
+ICEO class >> forDoIt [
+	"Méthode de classe d'ICEO. 
+	Permet que les lignes évaluées en bloc le soient en séquence et d'attraper les exceptions de classe Oups" 
+
+	RubSmalltalkEditor
+		compile: 'evaluateSelection
+	| node aString |
+	node := RBParser parseExpression: self selectionForDoitAsStream contents.
+	(node class == RBVariableNode or: [node class == RBMessageNode]) ifTrue: [
+		[ OpalCompiler new evaluate: node newSource ]
+			on: Oups
+			do: [ :ex |
+				SpInformDialog new
+					title: '''';
+					extent: 600 @ 120;
+					label: ex description;
+					acceptLabel: ''OK'';
+					openDialog. 
+				Transcript clear; show: node newSource ]].
+
+	node class == RBSequenceNode ifTrue: [
+		[
+		node statements do: [ :each | aString := each newSource.
+			Semaphore new
+				waitTimeoutMilliseconds: 10
+				onCompletion: [  ]
+				onTimeout: [ OpalCompiler new evaluate: each newSource ] ] ]
+			on: Oups
+			do: [ :ex |
+				SpInformDialog new
+					title: '''';
+					extent: 600 @ 120;
+					label: ex description;
+					acceptLabel: ''OK'';
+					openDialog. 
+				Transcript clear; show: aString ]]'
+		classified: 'do-it'
 ]
 
 { #category : 'utile' }

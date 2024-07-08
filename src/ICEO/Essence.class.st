@@ -638,7 +638,7 @@ Essence >> attributionEtre: unStringOrSymbol essence: uneEssence [
 
 	attribut := uneEssence new.
 	attribut setNom: symbol.
-
+	attribut isSituation: false.
 	structure add: attribut.
 	attribut setSituationDefinition: self.
 	uneEssence isIndividu ifTrue: [
@@ -846,6 +846,7 @@ Essence >> getEtreAttribut: unStringOrSymbol [
 
 { #category : 'acces' }
 Essence >> getEtres [
+"pour une situation"
 	^self getElements select: [:each | each isSituation not]
 ]
 
@@ -854,7 +855,7 @@ Essence >> getEtresAttributs [
 
 	| attributs |
 	structure isNil ifTrue: [ structure := OrderedCollection new ].
-	attributs := OrderedCollection new , structure.
+	attributs := (OrderedCollection new , structure) select: [:each | each isSituation not].
 	self getEssence name ~~ #chose ifTrue: [
 		self getEssence getEtresAttributs do: [ :each |
 			each getEssence isPrototype ifTrue: [ attributs add: each ] ] ].
@@ -960,6 +961,23 @@ Essence >> getSituations [
 	^ situations 
 ]
 
+{ #category : 'situations' }
+Essence >> getSituations: unStringOrSymbol [
+	"pour une situation"
+
+	| situations symbol|
+	self isSituation ifFalse: [
+		Oups new signal:
+			'la méthode getSituations ne s''applique qu''à une situation' ].
+	symbol := unStringOrSymbol isSymbol
+		          ifTrue: [ unStringOrSymbol ]
+		          ifFalse: [ unStringOrSymbol asSymbol ].
+	situations := OrderedCollection new.
+	self getStructure do: [ :each |
+		(each isSituation and: [each getEssence getNom == symbol]) ifTrue: [ situations add: each ] ].
+	^ situations 
+]
+
 { #category : 'acces' }
 Essence >> getStructure [
 "pour un être"
@@ -1003,7 +1021,7 @@ Essence >> isSituation: aBoolean [
 	isSituation := aBoolean
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'printing' }
 Essence >> printOn: aStream [ 
 	aStream nextPutAll: self getNom
 ]
@@ -1037,12 +1055,6 @@ Essence >> removeEtre: unEtre [
 	self isSituation ifFalse: [
 		Oups new signal: self getNom , ' n''est pas une situation' ].
 	self getStructure remove: unEtre
-
-]
-
-{ #category : 'methodes' }
-Essence >> resetStructure [
-	structure := OrderedCollection new
 
 ]
 
