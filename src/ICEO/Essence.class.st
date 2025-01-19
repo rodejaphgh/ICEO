@@ -601,7 +601,7 @@ Essence >> associationEtat: unEtat [
 { #category : 'acces' }
 Essence >> attributionEtre: unEtre [
 	" change la situation de définition de unEtre.
-	cas du montage d'une pièce démontée d'un autre être  "
+	cas du montage d'une pièce démontée d'un autre être  "  
 
 	self getEssence getEssencesAttributs
 		detect: [ :each | each subsume: unEtre getEssence ]
@@ -615,7 +615,7 @@ Essence >> attributionEtre: unEtre [
 					unEtre setSituationDefinition: self ] ]
 		ifNone: [
 			Oups new signal:
-				unEtre getEssence getNom , ' non défini pour l''essence '
+				unEtre getEssence getNom , ' non définie pour l''essence '
 				, self getEssence getNom ] 
 ]
 
@@ -1055,6 +1055,22 @@ Essence >> removeEtre: unEtre [
 	self isSituation ifFalse: [
 		Oups new signal: self getNom , ' n''est pas une situation' ].
 	self getStructure remove: unEtre
+
+]
+
+{ #category : 'acces' }
+Essence >> removeEtreDeNom: unStringOrSymbol [
+
+	| symbol |
+	symbol := unStringOrSymbol isSymbol
+		          ifTrue: [ unStringOrSymbol ]
+		          ifFalse: [ unStringOrSymbol asSymbol ].
+			self getStructure
+		detect: [ :each | each getNom == symbol ]
+		ifFound: [ :element | self removeEtat: element ]
+		ifNone: [
+			Oups new signal:
+				self getNom , ' ne possède pas d''attribut de nom ' , unStringOrSymbol ]
 
 ]
 

@@ -1378,7 +1378,7 @@ ICEO >> soitAttribut: unStringOrSymbol de: unEtre essence: uneEssence [
 	Il faudra vérifier qu'il est prévu au niveau de l'essence de self  d'avoir un attribut ayant comme essence uneEssence 
 	"
 
-	| nom attribut |
+	| nom attribut c n |
 	Smalltalk at: #sib ifPresent: [:x | x window close].
 		nom := unStringOrSymbol isSymbol
 		       ifTrue: [ unStringOrSymbol ]
@@ -1394,6 +1394,15 @@ ICEO >> soitAttribut: unStringOrSymbol de: unEtre essence: uneEssence [
 	attribut isSituation: uneEssence isSituation.
 	attribut isEtat: false.
 	(unEtre getStructure) add: attribut.
+	
+	"création des attributs des attributs"
+	uneEssence getAttributs do: [ :each |
+			c := each value.
+			(c notNil and: [ c > 0 ]) ifTrue: [
+				(1 to: c) do: [ :x |
+					n := ICEO genSym: each key getNom.
+					self soitAttribut: n de: attribut essence: each key] ] ].
+		
 		"les états essentiels se situent dans la situation de définition l'être"
 	uneEssence getQualites do: [ :each |
 		(each getStatut == #essentielle and: [
