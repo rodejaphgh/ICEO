@@ -1067,7 +1067,7 @@ Essence >> removeEtreDeNom: unStringOrSymbol [
 		          ifFalse: [ unStringOrSymbol asSymbol ].
 			self getStructure
 		detect: [ :each | each getNom == symbol ]
-		ifFound: [ :element | self removeEtat: element ]
+		ifFound: [ :element | self removeEtre: element ]
 		ifNone: [
 			Oups new signal:
 				self getNom , ' ne possède pas d''attribut de nom ' , unStringOrSymbol ]
