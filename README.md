@@ -13,3 +13,6 @@ Metacello new
 ```
 ## After loading
    execute :   ICEO start
+
+## Contacter l'auteur
+  robert.bourgeois@isnel.net
